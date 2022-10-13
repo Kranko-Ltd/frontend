@@ -175,7 +175,7 @@ const NavBar = (props) => {
           className={
             !nav
               ? "hidden"
-              : "absolute top-0 left-0 w-full bg-white h-screen text-[#444] text-xl flex flex-col gap-6 justify-center items-center"
+              : "absolute top-0 left-0 w-full bg-slate-100 h-screen text-[#444] text-xl flex flex-col gap-6 justify-center items-center"
           }
         >
           <li>
