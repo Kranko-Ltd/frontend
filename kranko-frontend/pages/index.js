@@ -7,14 +7,15 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <React.Fragment>
-      <div className="bg-blue-300">
+    
+      <div className="bg-[#faf9f6] overflow-x-hidden">
         <Navbar/>
         <HeroSection/>
-        <AboutUs/>
+        {/* <AboutUs/>
         <Mission/>
         <Testimonials/>
         <CallToAction/>
-        <Footer/>
+        <Footer/> */}
 
 
         
