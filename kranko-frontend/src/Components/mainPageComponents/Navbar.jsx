@@ -70,7 +70,7 @@ const NavBar = (props) => {
   return (
     <div className={`${styles.nav} ${show && `${styles.nav__black}`}`}>
       <div
-        className={`flex items-center ${props.props} justify-between antialiased font-serif`}>
+        className={`flex items-center ${props.props} justify-between antialiased`}>
         <Logo />
 
         <div className="hidden md:flex items-center space-x-20 mr-7 text-base font-medium ">
