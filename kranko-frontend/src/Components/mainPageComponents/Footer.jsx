@@ -34,7 +34,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-full bg-primary border-b-2 border-b-greyLight h-4" />
-      <div className="bg-primary w-full pt-8 px-4 flex flex-wrap items-center justify-center sm:justify-between">
+      <div className="bg-primary w-full pb-8 pt-8 px-4 flex flex-wrap items-center justify-center sm:justify-between">
         <p className="font-bold text-xl text-grey-900 mr-4">
           Copyright 2022
         </p>
