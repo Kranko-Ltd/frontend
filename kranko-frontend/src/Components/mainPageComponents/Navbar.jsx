@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import router from "next/router";
 //import { toast } from "react-toastify";
-//import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import Link from "next/link";
 import Logo from "../UI/Logo";
 import Button from "../UI/Button";

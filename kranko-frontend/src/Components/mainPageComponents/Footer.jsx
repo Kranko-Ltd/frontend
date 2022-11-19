@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin } from "react-icons/Bs";
+import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   return (
@@ -35,9 +35,7 @@ const Footer = () => {
       </div>
       <div className="w-full bg-primary border-b-2 border-b-greyLight h-4" />
       <div className="bg-primary w-full pb-8 pt-8 px-4 flex flex-wrap items-center justify-center sm:justify-between">
-        <p className="font-bold text-xl text-grey-900 mr-4">
-          Copyright 2022
-        </p>
+        <p className="font-bold text-xl text-grey-900 mr-4">Copyright 2022</p>
         <div className="flex gap-6">
           {/* icons */}
           <BsLinkedin size={30} fill="#57626C" />
