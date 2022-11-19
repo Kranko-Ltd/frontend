@@ -19,21 +19,18 @@ const HeroSection = () => {
           style={{
             backgroundColor: "rgba(0,0,0,0.1)",
             opacity: 0.6,
-            overflow: "hidden"
+            overflow: "hidden",
           }}
         />
       </div>
       <div className={`${"absolute ml-[2rem] mt-[30vh] "} ${styles.heroText}`}>
-        
-
-        <h3 className="antialiased font-bold text-2xl md:text-3xl py-8 w-[50%]">
-          With you to the last mile in ending youth uneployment
+        <h3 className="antialiased font-bold text-2xl md:text-5xl py-8 w-[50%]">
+          Parnering with you in ending youth unemployment
         </h3>
-
-        <Button1 btnCaption="Join Us" href="SignUp" />
+        <div className="w-1/2">
+          <Button1 btnCaption="Join Us" href="SignUp" />
+        </div>
       </div>
-s
-      
     </div>
   );
 };

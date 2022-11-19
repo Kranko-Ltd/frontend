@@ -9,16 +9,15 @@ const Logo = () => {
   };
   return (
     <div
-      className="w-[70px] h-10 ml-6 z-50 cursor-pointer"
+      className="w-[70px] h-10 ml-4 z-50 cursor-pointer flex justify-center items-center"
       onClick={handleClick}
     >
       <Image
-        
         src="/logo.svg"
-        layout="responsive"
+        // layout="responsive"
         alt="logo"
-        width={5}
-        height={5}
+        width={150}
+        height={1500}
         opacity={100}
       />
     </div>

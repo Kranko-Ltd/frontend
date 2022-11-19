@@ -1,8 +1,11 @@
 import React from 'react'
 import Image from "next/image";
+
+=======
 import { ImQuotesLeft } from "react-icons/im";
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+
 const Testimonials = () => {
   const Testimonies = [
     {
@@ -62,9 +65,15 @@ const Testimonials = () => {
         <div className="w-16 h-2  bg-primary" />
       </div>
 
+
+      <div className="flex items-center justify-center relative h-[80vh]  bg-opacity-80">
+        {/* Bg Image */}
+        <div className="mt-10 absolute">
+
       <div className="flex mt-10 w-[135%] md:w-[100%] justify-center items-center relative bg-opacity-80">
         {/* Bg Image */}
         <div className="z-1 bg-primary">
+
           <Image
             src="/about.jpg"
             width={1513}
@@ -79,6 +88,10 @@ const Testimonials = () => {
             }}
           />
         </div>
+
+        <div className="absolute flex m-4 w-[89%] h-[60vh]  bg-primary ">
+          Where is this div?
+
         <div className="flex flex-col absolute w-[90%] h-[90%] bg-primary z-5">
           <div className="hidden md:flex rounded-full w-40 h-40 bg-secondary ml-16 -mt-4 justify-center items-center">
             <ImQuotesLeft size={80} fill="#ffffff" />
@@ -148,6 +161,7 @@ const Testimonials = () => {
               </Splide>
             </div>
           </div>
+
         </div>
       </div>
     </div>
