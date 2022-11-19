@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import router from "next/router";
 //import { toast } from "react-toastify";
-import { UserContext } from "../../context/UserContext";
+//import { UserContext } from "../../context/UserContext";
 import Link from "next/link";
 import Logo from "../UI/Logo";
 import Button from "../UI/Button";
@@ -10,11 +10,10 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MdAccountCircle } from "react-icons/md";
-import { useQuery } from "@apollo/client"; 
-import { GET_ROLE } from "../../Queries/auth"; 
+import { useQuery } from "@apollo/client";
+import { GET_ROLE } from "../../Queries/auth";
 //import  LoadingAnimation from "./LoadingAnimation";
 // import  ErrorPage from "./ErrorPage";
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -51,13 +50,12 @@ const NavBar = (props) => {
   }, []);
 
   //const { loading, error, data: roleRes } = useQuery(GET_ROLE);
-  
+
   //if (loading) return <LoadingAnimation/>
   // if (error) {
   //     console.log(error);
   //     return <ErrorPage/>
   // }
-
 
   const handleDashboard = () => {
     if (roleRes.me.role.name == "Administrator") {
@@ -70,7 +68,8 @@ const NavBar = (props) => {
   return (
     <div className={`${styles.nav} ${show && `${styles.nav__black}`}`}>
       <div
-        className={`flex items-center ${props.props} justify-between antialiased`}>
+        className={`flex items-center ${props.props} justify-between antialiased`}
+      >
         <Logo />
 
         <div className="hidden md:flex items-center space-x-20 mr-7 text-base font-medium ">
@@ -88,11 +87,6 @@ const NavBar = (props) => {
           </Link>
         </div>
         <div className="hidden md:flex  gap-4 text-base font-medium ">
-
-        
-
-          
-        
           {user?.id ? (
             <Disclosure as="nav">
               {({ open }) => (
@@ -155,14 +149,14 @@ const NavBar = (props) => {
             </Disclosure>
           ) : (
             <Link href="/login">
-              <h3 className="cursor-pointer text-medium text-[#45BDE6] py-3">Sign in</h3>
+              <h3 className="cursor-pointer text-medium text-[#45BDE6] py-3">
+                Sign in
+              </h3>
             </Link>
-            
-            
           )}
           <Link href="/signUp">
-              <Button btnCaption="Sign Up" href="#" />
-            </Link>
+            <Button btnCaption="Sign Up" href="#" />
+          </Link>
         </div>
 
         {/* The Humbergur Menu */}
