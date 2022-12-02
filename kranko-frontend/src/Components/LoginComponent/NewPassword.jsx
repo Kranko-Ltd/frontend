@@ -249,26 +249,7 @@ const NewPassword = () => {
               </div>
 
               <FormButton BtnCaption="Reset Password" />
-              <div className="flex">
-                <button
-                  className="bg-white shadow-lg border-none text-primary text-xs flex    focus:shadow-outline focus:outline-none  font-bold px-4 md:text-sm  rounded-md mt-8 mb-3 py-1 "
-                  button="button"
-                >
-                  <span className="flex place-items-center stroke-white stroke-2 ">
-                    <FcGoogle size={20} />
-                    <span>Sign Up with Google</span>
-                  </span>
-                </button>
-                <button
-                  className="ml-5 bg-white shadow-lg border-none text-primary text-xs flex    focus:shadow-outline focus:outline-none  font-bold px-4 md:text-sm  rounded-md mt-8 mb-3 py-1"
-                  button="button"
-                >
-                  <span className="flex place-items-center stroke-white stroke-2 ">
-                    <BsFacebook size={20} />
-                    <span>Sign up with Facebook</span>
-                  </span>
-                </button>
-              </div>
+
               <Link href="/login">
                 <h3 className="hover:text-darkBlue-900 px-32 text-secondary">
                   <span className="text-secondary font-extrabold cursor-pointer ">
