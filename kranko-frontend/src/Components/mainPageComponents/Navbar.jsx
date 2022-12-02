@@ -154,8 +154,8 @@ const NavBar = (props) => {
               </h3>
             </Link>
           )}
-          <Link href="/signUp">
-            <Button btnCaption="Sign Up" href="#" />
+          <Link href="/register1">
+            <Button btnCaption="Sign Up" href="/register1" />
           </Link>
         </div>
 
