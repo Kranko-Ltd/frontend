@@ -14,7 +14,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from "react";
 
-const ForgotPassword = () => {
+const VerifyEmail = () => {
   const router = useRouter();
 
   const [isChecked, setIschecked] = useState(false);
@@ -34,7 +34,7 @@ const ForgotPassword = () => {
   return (
     <div className=" font-Nunito" id="joinUs">
       <Head>
-        <title>Set new Password</title>
+        <title>Verify Your Email</title>
         <meta name="description" content="Join Our Family" />
       </Head>
       <div className=" h-full min-h-screen bg-white bg-cover outline  grid grid-col-1 md:h-full md:grid-cols-2 2xl:h-screen text-primary">
@@ -49,32 +49,16 @@ const ForgotPassword = () => {
                   "text-center text-primary text-3xl md:text-3xl mb-5 font-semibold "
                 }
               >
-                Forgot Password?
+                Verify your email
               </h3>
 
               <div className="mb-2">
-                <label
-                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                  htmlFor="name"
-                >
-                  Email
-                </label>
-                <input
-                  {...register("email", {
-                    required: "email is required",
-                  })}
-                  type="text"
-                  placeholder="Enter your email "
-                  className="block rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-xs">
-                    {errors.email?.message}
-                  </p>
-                )}
+                <p className="text-primary text-sm text-center">
+                  Check you email for verification
+                </p>
               </div>
 
-              <FormButton BtnCaption="Reset Password" />
+              <FormButton BtnCaption="Resend Email" />
 
               <Link href="/login">
                 <h3 className="hover:text-darkBlue-900 px-32 text-secondary">
@@ -92,7 +76,7 @@ const ForgotPassword = () => {
     </div>
   );
 };
-export default ForgotPassword;
+export default VerifyEmail;
 export const getServerSideProps = async (context) => {
   const { ["auth_token"]: token } = parseCookies(context);
 
