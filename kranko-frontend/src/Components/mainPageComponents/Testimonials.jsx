@@ -57,7 +57,7 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div>
+    <div id="testimonials">
       <div className="flex flex-col items-center">
         <p className="font-bold text-4xl mt-4">Testimonials</p>
         <div className="w-16 h-2  bg-primary" />

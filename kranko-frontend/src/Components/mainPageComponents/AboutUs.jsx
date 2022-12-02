@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
 import Button1 from "../UI/Button1";
 
-import About from '../../../public/about.jpg'
-import Play from '../../../public/video_play.png'
+import About from "../../../public/about.jpg";
+import Play from "../../../public/video_play.png";
 const AboutUs = () => {
   return (
-    <div className="bg-greyLight">
+    <div className="bg-greyLight" id="aboutUs">
       {/* about us heading */}
       <div className="flex flex-col items-center">
         <p className="font-bold text-4xl mt-4">About us</p>
@@ -55,7 +55,7 @@ const AboutUs = () => {
             Stronger unpacked felicity to of mistaken. Fanny at wrong table ye
             in. Be on easily cannot innate in lasted months on.{" "}
           </p>
-          <div className='w-1/2'>
+          <div className="w-1/2">
             <Button1 btnCaption="Learn More" href="SignUp" />
           </div>
 
@@ -64,6 +64,6 @@ const AboutUs = () => {
       </div>
     </div>
   );
-}
+};
 
-export default AboutUs
+export default AboutUs;

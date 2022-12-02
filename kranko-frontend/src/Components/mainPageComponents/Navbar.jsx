@@ -76,10 +76,10 @@ const NavBar = (props) => {
           <Link href="/">
             <h3 className="cursor-pointer">Home</h3>
           </Link>
-          <Link href="#">
+          <Link href="#aboutUs">
             <h3 className="cursor-pointer">About</h3>
           </Link>
-          <Link href="#">
+          <Link href="#testimonials">
             <h3 className="cursor-pointer">Testimonials</h3>
           </Link>
           <Link href="#">

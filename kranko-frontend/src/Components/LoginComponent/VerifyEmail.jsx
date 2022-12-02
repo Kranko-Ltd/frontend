@@ -1,6 +1,4 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { Controller } from "react-hook-form";
-import Select from "react-select";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,8 +8,6 @@ import { useForm } from "react-hook-form";
 import { parseCookies } from "nookies";
 import RightImage from "../UI/RightImage";
 import FormButton from "../UI/FormButton";
-import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
 import { useEffect } from "react";
 
 const VerifyEmail = () => {
@@ -44,11 +40,7 @@ const VerifyEmail = () => {
               onSubmit={handleSubmit(onSubmit)}
               className="w-full bg-white pt-6 pb-8 mb-4   px-2  md:w-full lg:w-5/6 xl:w-2/3"
             >
-              <h3
-                className={
-                  "text-center text-primary text-3xl md:text-3xl mb-5 font-semibold "
-                }
-              >
+              <h3 className="text-center text-primary text-3xl md:text-3xl mb-5 font-semibold ">
                 Verify your email
               </h3>
 
