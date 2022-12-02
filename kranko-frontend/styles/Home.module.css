@@ -2,3 +2,78 @@
   animation: slideUp 0.75s 0.5s cubic-bezier(0.17, 0.88, 0.32, 1.27) both,
     fadeIn -25s 0.5s ease-out both;
 }
+.uploadCanvas {
+  border: dashed #e6e6e6 2px;
+  height: 110px;
+  width: 500px;
+  margin-top: 1rem;
+}
+
+.uploadCanvas > p {
+  max-width: 300px;
+  margin-top: 5rem;
+}
+
+.fileUpload {
+  color: transparent;
+  height: 110px;
+  width: 500px;
+}
+
+.fileUpload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.fileUpload::before {
+  content: "Upload your File";
+  color: #7c7c7c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  border-radius: 5px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.supScript {
+  color: #ff0000;
+  padding-left: 0.3rem;
+  font-size: 20px;
+  top: 0rem;
+}
+
+.galleryUpload::before {
+  content: "+       Click here to upload image files";
+}
+
+.preview {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  max-width: 300px;
+  max-height: 100px;
+  margin-top: 1rem;
+  padding:20px;
+}
+.imagedisplay{
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  width:500px;
+
+  
+  
+}
+.innerimagedisplay{
+  display: flow-root;
+  flex-direction: column;
+  gap: 5px;
+}

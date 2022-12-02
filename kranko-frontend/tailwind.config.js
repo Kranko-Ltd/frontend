@@ -7,7 +7,6 @@ module.exports = {
     "./src/Components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-   
     extend: {
       fontFamily: {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
@@ -27,5 +26,5 @@ module.exports = {
       white: "#ffffff",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

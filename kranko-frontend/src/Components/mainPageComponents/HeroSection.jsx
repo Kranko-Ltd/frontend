@@ -25,10 +25,10 @@ const HeroSection = () => {
       </div>
       <div className={`${"absolute ml-[2rem] mt-[30vh] "} ${styles.heroText}`}>
         <h3 className="antialiased font-bold text-2xl md:text-5xl py-8 w-[50%]">
-          Parnering with you in ending youth unemployment
+          Partnering with you in ending youth unemployment
         </h3>
         <div className="w-1/2">
-          <Button1 btnCaption="Join Us" href="SignUp" />
+          <Button1 btnCaption="Join Us" href="register1" />
         </div>
       </div>
     </div>
