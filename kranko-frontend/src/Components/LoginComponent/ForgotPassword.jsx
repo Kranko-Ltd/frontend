@@ -29,32 +29,7 @@ const ForgotPassword = () => {
     mode: "onChange",
   });
 
-  const password = useRef({});
-  const PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
-  password.current = watch("password", "");
-  const pass2 = useRef({});
-
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePassword = (e) => {
-    e.preventDefault();
-    setPasswordShown(!passwordShown);
-  };
-
-  const onSubmit = async (data) => {
-    try {
-      if (isChecked === true) {
-        localStorage.setItem(
-          "BasicInfo",
-          JSON.stringify({
-            ...data,
-          })
-        );
-        router.push("/FinalsignUp");
-      }
-    } catch (error) {
-      return toast.error(error.message);
-    }
-  };
+  const onSubmit = async (data) => {};
 
   return (
     <div className=" font-Nunito" id="joinUs">
