@@ -12,9 +12,20 @@ const GET_ROLE = gql`
 const GET_USER_PROFILE = gql`
   query {
     professionalDetails {
-      attributes
+      data {
+        id
+        attributes {
+          certification_link
+          Years_of_experience
+          Field_of_specialisation
+          image_url
+          user
+          role
+          email
+        }
+      }
     }
   }
 `;
 
-export { GET_ROLE };
+export { GET_ROLE, GET_USER_PROFILE };
