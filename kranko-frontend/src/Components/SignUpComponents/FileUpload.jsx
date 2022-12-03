@@ -6,7 +6,7 @@ import FormButton from "../UI/FormButton";
 import RightImage from "../UI/RightImage";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../Context/userContext";
+import { UserContext } from "../../context/userContext";
 import { parseCookies } from "nookies";
 import { useContext } from "react";
 

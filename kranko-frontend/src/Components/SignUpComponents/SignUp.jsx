@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Controller } from "react-hook-form";
-import Select from "react-select";
+//import Select from "react-select";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";

@@ -3,7 +3,7 @@ import { ApolloProvider } from "@apollo/client";
 import "../styles/globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import UserProvider from "../src/Context/userContext";
+import UserProvider from "../src/context/userContext";
 import { useApollo } from "../src/lib/apolloClient";
 
 function MyApp({ Component, pageProps }) {
