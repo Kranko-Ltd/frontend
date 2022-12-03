@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import router from "next/router";
 //import { toast } from "react-toastify";
-import { UserContext } from "../../Context/UserContext";
+import { UserContext } from "../../Context/userContext";
 import Link from "next/link";
 import Logo from "../UI/Logo";
 import Button from "../UI/Button";
@@ -10,8 +10,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MdAccountCircle } from "react-icons/md";
-import { useQuery } from "@apollo/client";
-import { GET_ROLE } from "../../Queries/auth";
+
 //import  LoadingAnimation from "./LoadingAnimation";
 // import  ErrorPage from "./ErrorPage";
 
@@ -48,14 +47,6 @@ const NavBar = (props) => {
       });
     };
   }, []);
-
-  //const { loading, error, data: roleRes } = useQuery(GET_ROLE);
-
-  //if (loading) return <LoadingAnimation/>
-  // if (error) {
-  //     console.log(error);
-  //     return <ErrorPage/>
-  // }
 
   const handleDashboard = () => {
     if (roleRes.me.role.name == "Administrator") {

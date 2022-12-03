@@ -21,7 +21,7 @@ const LoginForm = () => {
     if (user?.user != "client") {
       router.push("/register1");
     }
-  }, []);
+  });
   const [isChecked, setIschecked] = useState(false);
   const {
     register,

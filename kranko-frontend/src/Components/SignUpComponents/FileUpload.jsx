@@ -1,4 +1,3 @@
-import { useMutation } from "@apollo/client";
 import Router from "next/router";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -7,8 +6,12 @@ import FormButton from "../UI/FormButton";
 import RightImage from "../UI/RightImage";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../Context/userContext";
+import { parseCookies } from "nookies";
+import { useContext } from "react";
 
 const FileUpload = () => {
+  const { user, logout, register: signUp } = useContext(UserContext);
   const { handleSubmit } = useForm({
     reValidateMode: "onChange",
     mode: "onChange",
@@ -71,6 +74,28 @@ const FileUpload = () => {
 
     setImageFromCloudinary(data.secure_url);
     console.log(imageFromCloudinary);
+    const BasicInfo = JSON.parse(localStorage.getItem("BasicInfo"));
+    const roledefination = JSON.parse(localStorage.getItem("user"));
+    const email = BasicInfo.email;
+    const username = BasicInfo.name;
+    const password = BasicInfo.password;
+    const certification_link = "";
+    const Years_of_experience = 0;
+    const Field_of_specialisation = "";
+    const image_url = imageFromCloudinary;
+    const role = roledefination.user;
+
+    await signUp({
+      email,
+      username,
+      password,
+      certification_link,
+      Years_of_experience,
+      Field_of_specialisation,
+      image_url,
+      role,
+    });
+
     localStorage.removeItem("BasicInfo");
   };
 

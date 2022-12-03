@@ -19,7 +19,6 @@ const UserProvider = ({ children, ...props }) => {
   const [loginMutation, {}] = useMutation(LOGIN_MUTATION);
   const [signUpMutation, {}] = useMutation(SIGNUP_MUTATION);
   const [registerMutation, {}] = useMutation(CREATE_USER_MUTATION);
-  const [roleQuery, {}] = useLazyQuery(GET_ROLE);
   const [profileQuery, {}] = useLazyQuery(GET_USER_PROFILE);
 
   const isAuthenticated = !user;
