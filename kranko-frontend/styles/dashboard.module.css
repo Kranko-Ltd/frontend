@@ -1,0 +1,18 @@
+.logo{
+    background: url('https://res.cloudinary.com/dr9ck9zw0/image/upload/v1659473711/GGV/GGV-Logo_vaeuvu.svg');
+    width: 45px;
+    height: 45px;
+    background-color: rgb(234 179 8);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo_text {
+    font-size: 20px;
+}
+
+.visa_placeholder{
+    background: url('../public/visa.png');
+    width: 400px;
+    height: 200px;
+}

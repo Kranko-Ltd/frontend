@@ -96,6 +96,7 @@ const UserProvider = ({ children, ...props }) => {
       setCookie(undefined, "auth_token", res.register.jwt, {
         maxAge: 60 * 60 * 1, // 1 hour
       });
+      console.log("user for register: ", res.register.user);
 
       const { data: profile } = await registerMutation({
         variables: {
@@ -108,16 +109,18 @@ const UserProvider = ({ children, ...props }) => {
             name: username,
             email: email,
             user: res.register.user.id,
+            publishedAt: new Date(),
           },
         },
       });
 
       console.log("user for register: ", res.register.user);
-      console.log("user details:", profile.user_details.data.attributes);
+      console.log("profile:", profile);
+      console.log("user details:", profile.createProfessionalDetail);
 
       localStorage.setItem(
         "user",
-        JSON.stringify(profile.user_details.data.attributes)
+        JSON.stringify(profile.createProfessionalDetail.data.attributes)
       );
 
       setUser(JSON.parse(localStorage.getItem("user")));
@@ -149,21 +152,24 @@ const UserProvider = ({ children, ...props }) => {
       });
 
       if (
-        profile.user_details.data.attributes.role === "professional" ||
-        profile.user_details.data.attributes.role === "client"
+        profile.createProfessionalDetail.data.attributes.role ===
+          "professional" ||
+        profile.createProfessionalDetail.data.attributes.role === "client"
       ) {
         const user_profile = {
-          id: profile.user_details.data.id,
+          id: profile.createProfessionalDetail.data.id,
           certification_link:
-            profile.user_details.data.attributes.certification_link,
+            profile.createProfessionalDetail.data.attributes.certification_link,
           Years_of_experience:
-            profile.user_details.data.attributes.Years_of_experience,
+            profile.createProfessionalDetail.data.attributes
+              .Years_of_experience,
           Field_of_specialisation:
-            profile.user_details.data.attributes.Field_of_specialisation,
-          image_url: profile.user_details.data.attributes.image_url,
-          user: profile.user_details.data.attributes.user,
-          role: profile.user_details.data.attributes.role,
-          email: profile.user_details.data.attributes.email,
+            profile.createProfessionalDetail.data.attributes
+              .Field_of_specialisation,
+          image_url: profile.createProfessionalDetail.data.attributes.image_url,
+          user: profile.createProfessionalDetail.data.attributes.user,
+          role: profile.createProfessionalDetail.data.attributes.role,
+          email: profile.createProfessionalDetail.data.attributes.email,
         };
         localStorage.setItem("profile", JSON.stringify({ ...user_profile }));
         Router.push("/verifyEmail");

@@ -7,12 +7,13 @@ import UserProvider from "../src/context/userContext";
 import { useApollo } from "../src/lib/apolloClient";
 
 function MyApp({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page);
   const client = useApollo(pageProps);
 
   return (
     <ApolloProvider client={client}>
       <UserProvider>
-        <Component {...pageProps} />;
+        {getLayout(<Component {...pageProps} />)};
         <ToastContainer />
       </UserProvider>
     </ApolloProvider>

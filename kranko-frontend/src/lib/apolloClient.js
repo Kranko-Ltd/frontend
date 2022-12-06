@@ -11,7 +11,7 @@ export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 let apolloClient;
 
 const httpLink = new HttpLink({
-  uri: process.env.STRAPI_URL, // Server URL (must be absolute)
+  uri: "http://localhost:1337/graphql", // Server URL (must be absolute)
 });
 
 const authLink = setContext((_, { headers }) => {

@@ -50,6 +50,7 @@ const FileUpload = () => {
       };
     }
   };
+  const nothing = () => {};
 
   console.log(selectedPassport);
 
@@ -60,30 +61,37 @@ const FileUpload = () => {
     formData.append("file", newSelectedPassport);
     formData.append("upload_preset", "Listing");
     console.log(...formData);
-    const data = await fetch(
-      "https://api.cloudinary.com/v1_1/dr9ck9zw0/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    )
-      .then((r) => r.json())
-      .catch((error) => {
-        console.log(error);
-      });
+    const imageGetter = async () => {
+      const data = await fetch(
+        "https://api.cloudinary.com/v1_1/dr9ck9zw0/image/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      )
+        .then((r) => r.json())
+        .catch((error) => {
+          console.log(error);
+        });
+      const imageInfo = data?.secure_url;
 
-    setImageFromCloudinary(data.secure_url);
-    console.log(imageFromCloudinary);
+      setImageFromCloudinary(imageInfo);
+
+      console.log(imageFromCloudinary);
+    };
+    await imageGetter();
+
     const BasicInfo = JSON.parse(localStorage.getItem("BasicInfo"));
     const roledefination = JSON.parse(localStorage.getItem("user"));
-    const email = BasicInfo.email;
-    const username = BasicInfo.name;
-    const password = BasicInfo.password;
+    const email = BasicInfo?.email;
+    const username = BasicInfo?.name;
+    const password = BasicInfo?.password;
     const certification_link = "";
     const Years_of_experience = 0;
     const Field_of_specialisation = "";
     const image_url = imageFromCloudinary;
-    const role = roledefination.user;
+    const role = roledefination?.user;
+    console.log(email, username, password, imageFromCloudinary, role);
 
     await signUp({
       email,
@@ -145,7 +153,7 @@ const FileUpload = () => {
               )}
 
               <FormButton
-                handlesubmit={submitHandler}
+                handlesubmit={nothing}
                 BtnCaption="Save and Complete"
               />
             </form>

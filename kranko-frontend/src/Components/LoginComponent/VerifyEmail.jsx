@@ -9,6 +9,7 @@ import { parseCookies } from "nookies";
 import RightImage from "../UI/RightImage";
 import FormButton from "../UI/FormButton";
 import { useEffect } from "react";
+import axios from "axios";
 
 const VerifyEmail = () => {
   const router = useRouter();
@@ -25,7 +26,22 @@ const VerifyEmail = () => {
     mode: "onChange",
   });
 
-  const onSubmit = async (data) => {};
+  const onSubmit = async () => {
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    const email = profile?.email;
+    async function createSendEmail() {
+      const sendEmail = await axios.post("/api/send_email", {
+        email: email,
+      });
+
+      const result = await sendEmail.data.status;
+      console.log("email", result);
+      if (result.error) {
+        toast(result.error.message);
+      }
+    }
+    createSendEmail();
+  };
 
   return (
     <div className=" font-Nunito" id="joinUs">
