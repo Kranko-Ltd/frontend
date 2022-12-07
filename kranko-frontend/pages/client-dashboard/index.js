@@ -7,6 +7,7 @@ import Layout from "../../src/Components/DashBoard/Layout";
 //import DevMsg from "../../src/Components/DashBoard/DevMsg";
 import { parseCookies } from "nookies";
 import PageBelt from "../../src/Components/DashBoard/PageBelt";
+import DashboardPage from "../../src/Components/DashBoard/DashboardPage";
 
 export default function Dashboard() {
   // const [token, setToken] = useState(null);
@@ -20,7 +21,11 @@ export default function Dashboard() {
 
   // }, []);
 
-  return <div className="flex-1 mb-8 bg-white mr-3 ml-2 mt-2"></div>;
+  return (
+    <div className="flex-1 mb-8 bg-white mr-3 ml-2 mt-2">
+      <DashboardPage />
+    </div>
+  );
 }
 
 Dashboard.getLayout = function getLayout(Dashboard) {

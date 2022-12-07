@@ -80,7 +80,7 @@ const LeftBar = () => {
     <>
       <div
         className={`h-screen sticky bg-primary p-3 pt-5 pb-1 ${
-          showLeftBar ? "w-72" : "w-20"
+          showLeftBar ? "w-55" : "w-20"
         } 
             relative duration-300 top-0 max-h-screen md:sticky md:top-0 z-50`}
       >
@@ -229,7 +229,7 @@ const LeftBar = () => {
           <>
             <button
               onClick={handleLogout}
-              className="pb-1 w-1/2 text-left
+              className="pb-1  text-left
             rounded-xl shadow-xl  bg-[#57626C] m-[20%] "
             >
               <li
