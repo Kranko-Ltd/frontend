@@ -16,7 +16,7 @@ const ProjectsCard = () => {
             <p className="font-bold text-primary">9234</p>
           </span>
           <span className="flex items-centre space-x-2">
-            <Image src="/eye 1.png " height={15} width={15} />
+            <Image src="/eye 1.png " height={8} width={20} />
             <p className="font-bold text-primary">12K</p>
           </span>
           <span className="flex items-center space-x-2">

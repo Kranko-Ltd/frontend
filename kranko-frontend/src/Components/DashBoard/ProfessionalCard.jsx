@@ -43,7 +43,7 @@ const ProfessionalCard = () => {
         </button>
       </div>
 
-      <div className="rounded bg-white p-0  absolute top-20 left-10">
+      <div className="rounded bg-white p-0  absolute top-20 left-8">
         <img
           src="/person7.jpg"
           width={60}
