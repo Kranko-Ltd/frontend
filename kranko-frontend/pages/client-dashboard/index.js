@@ -22,7 +22,7 @@ export default function Dashboard() {
   // }, []);
 
   return (
-    <div className="flex-1 mb-8 bg-white mr-3 ml-2 mt-2">
+    <div className="flex-1 mb-8 mr-3 ml-2 mt-2">
       <DashboardPage />
     </div>
   );

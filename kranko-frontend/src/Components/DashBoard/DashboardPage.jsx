@@ -7,9 +7,9 @@ const DashboardPage = () => {
   return (
     <React.Fragment>
       <div className="gap-5 flex">
-        <div>
+        <div className="bg-white">
           <p className="text-2xl text-primary p-5">Featured Professionals</p>
-          <div className=" flex gap-5 relative">
+          <div className=" md:flex gap-5 relative block space-y-2">
             <ProfessionalCard />
             <ProfessionalCard />
             <ProfessionalCard />
