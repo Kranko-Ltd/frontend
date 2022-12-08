@@ -9,7 +9,7 @@ const DashboardPage = () => {
       <div className="gap-5 flex">
         <div className="bg-white">
           <p className="text-2xl text-primary p-5">Featured Professionals</p>
-          <div className=" md:flex gap-5 relative block space-y-2">
+          <div className=" lg:flex gap-5 relative block space-y-2">
             <ProfessionalCard />
             <ProfessionalCard />
             <ProfessionalCard />

@@ -4,7 +4,7 @@ import Notimini from "./Notimini";
 
 const Notifications = () => {
   return (
-    <div className="bg-white shadow-xl md:w-1/4 ml-2 p-4  md:block hidden">
+    <div className="bg-white shadow-xl md:w-1/4 ml-2 p-4  lg:block hidden">
       <div className="flex justify-between ">
         <p className="text-primary text-sm antialiased font-extrabold">
           Notifications

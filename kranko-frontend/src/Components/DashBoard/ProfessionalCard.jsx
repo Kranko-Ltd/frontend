@@ -4,17 +4,18 @@ import Image from "next/image";
 const ProfessionalCard = () => {
   return (
     <div className="bg-white shadow-xl w-full  rounded-xl overflow-hidden relative hover:scale-105 hover:opacity-80 hover:shadow-inner">
-      <div className="w-full rounded-lg z-3">
+      <div className="w-full rounded-lg z-3 ">
         <Image
           src="/prof-bg.png "
           width={270}
           height={100}
-          className="w-full "
+          layout="responsive"
+          className=" "
         />
       </div>
 
       <p className="pl-24 text-primary text-sm  centre font-extrabold ">
-        James Stallion
+        Cynthia Mpathi
       </p>
       <p className="pl-24 text-grey-900 text-sm font-bold ">Graphic Designer</p>
       <div className="flex  justify-evenly text-xs p-2">
@@ -43,7 +44,7 @@ const ProfessionalCard = () => {
         </button>
       </div>
 
-      <div className="rounded bg-white p-0  absolute top-20 left-8">
+      <div className="rounded bg-white p-0  absolute top-[30%] md:top-[25%] left-8">
         <img
           src="/person7.jpg"
           width={60}

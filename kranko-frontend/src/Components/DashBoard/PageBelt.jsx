@@ -10,7 +10,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 
 const PageBelt = () => {
   return (
-    <div className=" bg-white p-2  py-? flex justify-end items-center stroke-1 sticky">
+    <div className=" bg-white p-2  py-? flex justify-end items-center stroke-1 ">
       <Link href="/client-dasboard/notifications">
         <button className="text-2xl bg-[#45BDE6] bg-opacity-25 rounded-full p-1">
           <IoMdNotificationsOutline />
