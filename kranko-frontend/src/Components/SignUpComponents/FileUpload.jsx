@@ -70,17 +70,21 @@ const FileUpload = () => {
         }
       )
         .then((r) => r.json())
+        .then((info) => info.secure_url)
         .catch((error) => {
           console.log(error);
         });
-      const imageInfo = data?.secure_url;
+      console.log(data);
 
-      setImageFromCloudinary(imageInfo);
+      //console.log(imageFromCloudinary);
+      setTimeout(() => {}, 3000);
 
-      console.log(imageFromCloudinary);
+      localStorage.setItem("imageInfo", JSON.stringify({ data }));
+      return data;
     };
-    await imageGetter();
 
+    await imageGetter();
+    const ImageInfo = JSON.parse(localStorage.getItem("imageInfo"));
     const BasicInfo = JSON.parse(localStorage.getItem("BasicInfo"));
     const roledefination = JSON.parse(localStorage.getItem("user"));
     const email = BasicInfo?.email;
@@ -89,9 +93,9 @@ const FileUpload = () => {
     const certification_link = "";
     const Years_of_experience = 0;
     const Field_of_specialisation = "";
-    const image_url = imageFromCloudinary;
+    const image_url = ImageInfo?.data;
     const role = roledefination?.user;
-    console.log(email, username, password, imageFromCloudinary, role);
+    console.log(email, username, password, image_url, role);
 
     await signUp({
       email,
