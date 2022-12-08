@@ -229,12 +229,12 @@ const LeftBar = () => {
           <>
             <button
               onClick={handleLogout}
-              className="pb-1  text-left
-            rounded-xl shadow-xl  bg-[#57626C] m-[20%] "
+              className="text-left
+            rounded-xl shadow-xl  bg-grey-900 bg-opacity-20 m-[20%] "
             >
               <li
                 className={`text-gray-300 text-sm flex items-center
-                            gap-x-4 cursor-pointer py-2 hover:bg-light-white rounded-md 
+                            gap-x-4 cursor-pointer py-1.5 hover:bg-light-white rounded-md 
                              ${!showLeftBar ? "px-2.5" : "px-4"}
                             `}
               >

@@ -19,7 +19,7 @@ const Notimini = () => {
           <p className="text-xs text-grey-900">Scheduled A meeting with You</p>
         </div>
       </div>
-      <div className="p-1 py-0 bg-secondary rounded-full absolute top-0 left-8">
+      <div className="p-1 py-0 bg-secondary font-bold text-white rounded-full absolute top-0 left-8">
         <p className="text-xs">2</p>
       </div>
     </div>
