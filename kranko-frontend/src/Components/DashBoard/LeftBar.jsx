@@ -60,7 +60,7 @@ const LeftBar = () => {
   const ServicesMenus = [
     {
       title: "Professionals",
-      href: "/dashboard/Professionals",
+      href: "/client-dashboard/professionals",
 
       icon: <LeftbarICons icon_image="/professionals_icon.png" />,
     },

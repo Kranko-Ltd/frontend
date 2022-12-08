@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     to: email,
     from: "samuelmunguti61@gmail.com",
     subject: "Welcome to KrankoJobs",
-    text: "Thanks for joining us.  You can now head to the http://localhost:3000",
+    text: "Thanks for joining us.  You can now head to the http://localhost:3000/client-dashboard",
   };
   console.log(message);
   await sgMail
