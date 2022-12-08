@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
+// On the dashboard
 const ProjectsCard = () => {
   return (
     <div className="w-full flex gap-2 p-2 hover:scale-95 bg-white shadow-xl hover:opacity-80 rounded ">
