@@ -13,13 +13,19 @@ import FormButton from "../UI/FormButton";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from "react";
+import { userContext } from "../../context/userContext";
 
 const LoginForm = () => {
+  const { signIn } = useContext(userContext);
+  const toastId = useRef(null);
   const router = useRouter();
+
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user?.user != "client") {
-      router.push("/register1");
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    if (profile?.role === "client") {
+      router.push("/client-dashboard");
+    } else if (profile?.role === "professional") {
+      router.push("/professional-dashboard");
     }
   });
   const [isChecked, setIschecked] = useState(false);
@@ -47,18 +53,18 @@ const LoginForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      if (isChecked === true) {
-        localStorage.setItem(
-          "BasicInfo",
-          JSON.stringify({
-            ...data,
-          })
-        );
-        router.push("/FinalsignUp");
-      }
+      toastId.current = toast("Please Wait", { autoClose: false });
+      await signIn(data);
+      toast.update(toastId.current, {
+        render: "Logged in successfully",
+        type: toast.TYPE.SUCCESS,
+        autoClose: 2000,
+      });
     } catch (error) {
-      return toast.error(error.message);
+      toast.error(error.message);
     }
+
+    // here check if the user is logged in and redirect him to the /apply
   };
 
   return (

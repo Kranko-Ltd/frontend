@@ -11,7 +11,7 @@ const GET_ROLE = gql`
 `;
 const GET_USER_PROFILE = gql`
   query {
-    professionalDetails {
+    professionalDetails(pagination: { limit: 100 }) {
       data {
         id
         attributes {

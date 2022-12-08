@@ -53,23 +53,30 @@ const UserProvider = ({ children, ...props }) => {
     // });
     await profileQuery({
       onCompleted: (data) => {
-        const user_profile = data.professionalDetails.filter(
-          (profile) => profile.data.user === user.id
+        console.log(data.professionalDetails);
+        const allUsers = data.professionalDetails.data;
+        console.log("user_id:", user.id);
+
+        console.log(allUsers);
+
+        const user_profile = allUsers.find(
+          (profile) => profile.attributes.user === user.id
         );
-        console.log("role: ", user_profile.data.attributes.role);
+        console.log(user_profile);
+        console.log("role: ", user_profile.attributes.role);
         const profileInfo = {
-          id: user_profile.data.id,
-          certification_link: user_profile.data.attributes.certification_link,
-          Years_of_experience: user_profile.data.attributes.Years_of_experience,
+          id: user_profile.id,
+          certification_link: user_profile.attributes.certification_link,
+          Years_of_experience: user_profile.attributes.Years_of_experience,
           Field_of_specialisation:
-            user_profile.data.attributes.Field_of_specialisation,
-          image_url: user_profile.data.attributes.image_url,
-          user: user_profile.data.attributes.user,
-          role: user_profile.data.attributes.role,
-          email: user_profile.data.attributes.email,
+            user_profile.attributes.Field_of_specialisation,
+          image_url: user_profile.attributes.image_url,
+          user: user_profile.attributes.user,
+          role: user_profile.attributes.role,
+          email: user_profile.attributes.email,
         };
 
-        localStorage.setItem("profile", jSON.stringify({ ...profileInfo }));
+        localStorage.setItem("profile", JSON.stringify({ ...profileInfo }));
 
         if (profileInfo.role == "professional")
           Router.push("/professional-dashboard");
