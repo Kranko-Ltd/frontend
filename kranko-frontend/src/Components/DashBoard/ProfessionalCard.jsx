@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProfessionalCard = () => {
   return (
-    <div className="bg-white shadow-xl w-full  rounded-xl overflow-hidden relative hover:scale-105 hover:opacity-80 hover:shadow-inner">
+    <div className="bg-white shadow-xl  rounded-xl overflow-hidden relative hover:scale-105 hover:opacity-80 hover:shadow-inner">
       <div className="w-full rounded-lg z-3 ">
         <Image
           src="/prof-bg.png"

@@ -9,6 +9,7 @@ import { GrTechnology } from "react-icons/gr"; //technology
 import { MdHealthAndSafety } from "react-icons/md"; //Mental health
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import ProfessionalCard from "./ProfessionalCard";
 const ClientProfessionalsPage = () => {
   return (
     <>
@@ -163,7 +164,18 @@ const ClientProfessionalsPage = () => {
           </SplideSlide>
         </Splide>
       </div>
-      
+
+      {/* professionals list */}
+      <div className="bg-white rounded-md mt-12 flex flex-wrap px-4 py-2 gap-3 justify-center items-center">
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+        <ProfessionalCard />
+      </div>
     </>
   );
 };
