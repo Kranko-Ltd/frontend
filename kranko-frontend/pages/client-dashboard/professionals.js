@@ -8,6 +8,7 @@ import Layout from "../../src/Components/DashBoard/Layout";
 import { parseCookies } from "nookies";
 import PageBelt from "../../src/Components/DashBoard/PageBelt";
 import DashboardPage from "../../src/Components/DashBoard/DashboardPage";
+import ClientProfessionalsPage from "../../src/Components/DashBoard/ClientProfessionalsPage";
 
 export default function professionals() {
   // const [token, setToken] = useState(null);
@@ -23,7 +24,7 @@ export default function professionals() {
 
   return (
     <div className="flex-1 mb-8 mr-3 ml-2 mt-2">
-      <DashboardPage />
+      <ClientProfessionalsPage />
     </div>
   );
 }
@@ -32,19 +33,19 @@ professionals.getLayout = function getLayout(professionals) {
   return <Layout>{professionals}</Layout>;
 };
 
-export const getServerSideProps = async (context) => {
-  const { ["auth_token"]: token } = parseCookies(context);
+// export const getServerSideProps = async (context) => {
+//   const { ["auth_token"]: token } = parseCookies(context);
 
-  if (!token) {
-    return {
-      redirect: {
-        destination: "/login",
-        permanet: false,
-      },
-    };
-  }
+//   if (!token) {
+//     return {
+//       redirect: {
+//         destination: "/login",
+//         permanet: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: {},
-  };
-};
+//   return {
+//     props: {},
+//   };
+// };
