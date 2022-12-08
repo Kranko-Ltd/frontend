@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const getInitialState = () => {};
 
-export const UserContext = createContext(getInitialState);
+export const userContext = createContext(getInitialState);
 
 const UserProvider = ({ children, ...props }) => {
   const [user, setUser] = useState(null);
@@ -200,12 +200,12 @@ const UserProvider = ({ children, ...props }) => {
   };
 
   return (
-    <UserContext.Provider
+    <userContext.Provider
       {...props}
       value={{ isAuthenticated, user, signIn, register, logout }}
     >
       {children}
-    </UserContext.Provider>
+    </userContext.Provider>
   );
 };
 

@@ -15,7 +15,7 @@ import {
 } from "react-icons/ai";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { UserContext } from "../../context/UserContext";
+import { userContext } from "../../context/userContext";
 import { toast } from "react-toastify";
 import LeftbarICons from "./LeftbarICons";
 import Image from "next/image";
@@ -24,7 +24,7 @@ import Image from "next/image";
 const LeftBar = () => {
   const [showLeftBar, setShowLeftBar] = useState(true);
   const router = useRouter();
-  const { logout, user } = useContext(UserContext);
+  const { logout, user } = useContext(userContext);
 
   console.log("User: ", user);
 

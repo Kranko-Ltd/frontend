@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import router from "next/router";
 //import { toast } from "react-toastify";
-import { UserContext } from "../../context/userContext";
+import { userContext } from "../../context/userContext";
 import Link from "next/link";
 import Logo from "../UI/Logo";
 import Button from "../UI/Button";
@@ -21,7 +21,7 @@ function classNames(...classes) {
 const NavBar = (props) => {
   console.log(props.props);
 
-  const { user, logout } = useContext(UserContext);
+  const { user, logout } = useContext(userContext);
 
   // console.log("this is the user: ", user);
   const handleLogout = () => {
