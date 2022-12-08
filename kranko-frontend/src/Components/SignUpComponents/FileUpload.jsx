@@ -6,12 +6,12 @@ import FormButton from "../UI/FormButton";
 import RightImage from "../UI/RightImage";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { UserContext } from "../../context/userContext";
+import { userContext } from "../../context/userContext";
 import { parseCookies } from "nookies";
 import { useContext } from "react";
 
 const FileUpload = () => {
-  const { user, logout, register: signUp } = useContext(UserContext);
+  const { user, logout, register: signUp } = useContext(userContext);
   const { handleSubmit } = useForm({
     reValidateMode: "onChange",
     mode: "onChange",
