@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const ClientProjectCard = () => {
   return (
-    <div className=" w-full shadow-2xl hover:scale-105">
+    <div className=" w-full shadow-2xl hover:scale-105 rounded-md">
       <div className="relative">
         <Image
           src="/clientprojectimage.png"
-          width={250}
-          height={200}
+          width={298}
+          height={194}
           layout="responsive"
           className="shadow-inner botton-blur-sm "
         />
@@ -22,12 +22,14 @@ const ClientProjectCard = () => {
         {" "}
         September 12th 2021
       </p>
+      {/* progress bar */}
       <div className="flex justify-between px-2">
         <div className="h-2 rounded w-1/2 bg-greyLight mt-2">
           <div className="h-2 rounded w-1/2 bg-secondary"></div>
         </div>
         <p className="text-secondary text-sm pr-2">50% Completed</p>
       </div>
+
       <div className="flex justify-between px-2 mt-3 pb-3">
         <div className="flex items-center">
           <Image
@@ -38,8 +40,8 @@ const ClientProjectCard = () => {
           />
           <p className="text-xs text-primary pl-3">By:Jessica Mwakazi</p>
         </div>
-        <button className="bg-secondary  px-4 w-24 rounded text-white text-sm">
-          VIEW
+        <button className="bg-secondary  px-4 w-24 rounded-md text-white text-sm">
+          View
         </button>
       </div>
     </div>
