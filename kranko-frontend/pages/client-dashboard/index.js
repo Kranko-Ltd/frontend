@@ -32,19 +32,19 @@ Dashboard.getLayout = function getLayout(Dashboard) {
   return <Layout>{Dashboard}</Layout>;
 };
 
-// export const getServerSideProps = async (context) => {
-//   const { ["auth_token"]: token } = parseCookies(context);
+export const getServerSideProps = async (context) => {
+  const { ["auth_token"]: token } = parseCookies(context);
 
-//   if (!token) {
-//     return {
-//       redirect: {
-//         destination: "/login",
-//         permanet: false,
-//       },
-//     };
-//   }
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanet: false,
+      },
+    };
+  }
 
-//   return {
-//     props: {},
-//   };
-// };
+  return {
+    props: {},
+  };
+};
