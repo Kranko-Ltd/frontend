@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const ClientProjectCard = () => {
+  const router = useRouter();
   return (
     <div className=" w-full shadow-2xl hover:scale-105 rounded-md">
       <div className="relative">
@@ -40,7 +42,12 @@ const ClientProjectCard = () => {
           />
           <p className="text-xs text-primary pl-3">By:Jessica Mwakazi</p>
         </div>
-        <button className="bg-secondary  px-4 w-24 rounded-md text-white text-sm">
+        <button
+          className="bg-secondary  px-4 w-24 rounded-md text-white text-sm"
+          onClick={() => {
+            router.push("/client-dashboard/projectTimeline");
+          }}
+        >
           View
         </button>
       </div>
