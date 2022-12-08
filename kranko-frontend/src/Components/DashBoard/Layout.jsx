@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         <meta name="KrankoJobs Dashboard" content="KrankoJobs Dashboard" />
         <link rel="icon" href="" />
       </Head>
-      <div className="bg-secondary bg-opacity-25">
+      <div className="bg-secondary bg-opacity-10">
         <div className="flex">
           {/* <LeftBar />
           {children} */}

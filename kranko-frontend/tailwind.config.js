@@ -25,6 +25,9 @@ module.exports = {
       warning: "#FFBF27",
       white: "#ffffff",
     },
+    // fontSize: {
+    //   '2xs': "11px",
+    // },
   },
   plugins: [require("@tailwindcss/forms")],
 };

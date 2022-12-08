@@ -23,7 +23,7 @@ const MeetingMini = () => {
         </span>
       </div>
       <button className="bg-secondary rounded text-xs mr-0 p-2 py-1 text-white">
-        VIEW
+        View
       </button>
     </div>
   );

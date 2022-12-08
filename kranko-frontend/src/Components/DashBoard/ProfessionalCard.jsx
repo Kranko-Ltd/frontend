@@ -6,50 +6,51 @@ const ProfessionalCard = () => {
     <div className="bg-white shadow-xl w-full  rounded-xl overflow-hidden relative hover:scale-105 hover:opacity-80 hover:shadow-inner">
       <div className="w-full rounded-lg z-3 ">
         <Image
-          src="/prof-bg.png "
-          width={270}
-          height={100}
+          src="/prof-bg.png"
+          width={250}
+          height={104}
           layout="responsive"
           className=" "
         />
       </div>
 
-      <p className="pl-24 text-primary text-sm  centre font-extrabold ">
+      <p className="pl-24 text-darkBlue-900 text-sm  centre font-extrabold ">
         Cynthia Mpathi
       </p>
-      <p className="pl-24 text-grey-900 text-sm font-bold ">Graphic Designer</p>
-      <div className="flex  justify-evenly text-xs p-2">
-        <div>
+      <p className="pl-24 text-grey-900 text-xs font-bold ">Graphic Designer</p>
+      <div className="flex  justify-evenly text-xs p-2 xl:gap-2">
+        <div className="flex flex-col justify-center items-center text-center">
           <p className="text-grey-900">Active projects</p>
-          <p className="text-primary bold text-center font-bold">128</p>
+          <p className="text-grey-900 font-extrabold">128</p>
         </div>
-        <div>
+        <div className="flex flex-col justify-center items-center text-center">
           <p className="text-grey-900">Completed projects</p>
-          <p className="text-primary  text-center font-bold">128</p>
+          <p className="text-grey-900 font-extrabold">128</p>
         </div>
-        <div>
-          <p className="text-grey-900">Rating</p>
-          <p className="text-primary font-bold text-center">3.4</p>
+        <div className="flex flex-col justify-center items-center text-center">
+          <p className="text-grey-900 mb-4 xl:mb-0">Rating</p>
+          <p className="text-grey-900 font-extrabold">3.4</p>
         </div>
       </div>
-      <div className="justify-evenly flex pb-2">
-        <button className="bg-secondary text-primary text-sm p-1 rounded">
+
+      <div className="justify-evenly flex pb-1.5 px-1.5 gap-1.5">
+        <button className="bg-secondary bg-opacity-30 h-4 flex items-center py-1.5 px-1.5 text-secondary text-bold text-xs rounded">
           Frontend
         </button>
-        <button className="bg-secondary text-primary text-sm p-1 rounded">
+        <button className="bg-secondary bg-opacity-30 h-4 flex items-center py-1.5 px-1.5 text-secondary text-bold text-xs rounded">
           Illustrations
         </button>
-        <button className="bg-secondary text-primary text-sm p-1 rounded">
+        <button className="bg-secondary bg-opacity-30 h-4 flex items-center py-1.5 px-1.5 text-secondary text-bold text-xs rounded">
           Frontend
         </button>
       </div>
 
-      <div className="rounded bg-white p-0  absolute top-[30%] md:top-[25%] left-8">
+      <div className="rounded-md bg-white p-1  absolute top-[30%] md:top-[25%] left-3">
         <img
-          src="/person7.jpg"
+          src="/person9.jpg"
           width={60}
           height={60}
-          className="rounded-xl bg-white   "
+          className="rounded-md bg-white   "
         />
       </div>
     </div>
