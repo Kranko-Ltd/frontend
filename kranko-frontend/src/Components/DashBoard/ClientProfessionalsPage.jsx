@@ -166,7 +166,7 @@ const ClientProfessionalsPage = () => {
       </div>
 
       {/* professionals list */}
-      <div className="bg-white rounded-md mt-12 flex flex-wrap px-4 py-2 gap-3 justify-center items-center">
+      <div className="bg-white rounded-md mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 py-2 gap-3 justify-center items-center">
         <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
