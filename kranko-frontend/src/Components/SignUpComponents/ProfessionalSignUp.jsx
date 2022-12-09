@@ -14,16 +14,54 @@ import FormButton from "../UI/FormButton";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { useEffect } from "react";
+import Select from "react-select";
 
-const SignUp = () => {
+const ProfessionalSignUp = () => {
+  const [selectedskill, setSelectedSkill] = useState();
+  const onSelectFocus = () =>
+    setSelectLabelStyles(
+      "absolute z-0 text-sm top-6 origin-[0] left-2.5 duration-300 transform -translate-y-6 scale-75 text-secondary font-semibold"
+    );
+
+  const onSelectBlur = () => {
+    if (!setSelectedSkill)
+      setSelectLabelStyles(
+        "absolute z-0 text-sm text-gray-500 top-6 origin-[0] left-2.5 duration-300 transform scale-100 translate-y-0"
+      );
+    else
+      setSelectLabelStyles(
+        "absolute z-0 text-sm text-gray-500 top-6 origin-[0] left-2.5 duration-300 transform -translate-y-6 scale-75 font-semibold"
+      );
+  };
+  const [selectLabelStyles, setSelectLabelStyles] = useState(
+    "absolute z-0 text-sm text-gray-500 top-6 origin-[0] left-2.5"
+  );
+  function customTheme(theme) {
+    return {
+      ...theme,
+      colors: {
+        ...theme.colors,
+        primary25: "#45BDE6",
+        primary: "secondary",
+      },
+    };
+  }
+  const skillOptions = [
+    { value: 1, label: "React Js" },
+    { value: 2, label: "Figma" },
+    { value: 3, label: "Nextjs" },
+    { value: 4, label: "Nodejs" },
+    { value: 5, label: "UI/UX" },
+    { value: 6, label: "Matlab" },
+  ];
   const router = useRouter();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user?.user != "client" && user?.user != "professional") {
       router.push("/register1");
     }
-    if (user?.user === "professional") {
-      router.push("/signUp_");
+    if (user?.user === "client") {
+      router.push("/signUp");
     }
   }, []);
   const [isChecked, setIschecked] = useState(false);
@@ -56,6 +94,7 @@ const SignUp = () => {
           "BasicInfo",
           JSON.stringify({
             ...data,
+            selectedskill,
           })
         );
         router.push("/FinalsignUp");
@@ -124,6 +163,121 @@ const SignUp = () => {
                     {errors.email?.message}
                   </p>
                 )}
+              </div>
+              <div className="mb-2">
+                <label
+                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  htmlFor="name"
+                >
+                  Occupation
+                </label>
+                <input
+                  {...register("occupation", {
+                    required: "occupation is required",
+                  })}
+                  type="text"
+                  placeholder="Enter your occupation "
+                  className="block rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">
+                    {errors.occupation?.message}
+                  </p>
+                )}
+              </div>
+              <div className="mb-2">
+                <label
+                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  htmlFor="name"
+                >
+                  Bio
+                </label>
+                <textarea
+                  {...register("bio", {
+                    required: "Bio is required",
+                  })}
+                  type="text"
+                  placeholder="Enter your Bio "
+                  className="block rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">{errors.bio?.message}</p>
+                )}
+              </div>
+              <div className="mb-2">
+                <label
+                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  htmlFor="name"
+                >
+                  Certification Links
+                </label>
+                <input
+                  {...register("certificationlink", {
+                    required: "Certification link is required",
+                  })}
+                  type="text"
+                  placeholder="Enter your Certification links "
+                  className="block rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">
+                    {errors.certificationlink?.message}
+                  </p>
+                )}
+              </div>
+              <div className="mb-2">
+                <label
+                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  htmlFor="name"
+                >
+                  Years Of Experience
+                </label>
+                <input
+                  {...register("yearsofexperience", {
+                    required: "Years of experience is required",
+                  })}
+                  type="number"
+                  placeholder="Enter your years of Experience "
+                  className="block rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">
+                    {errors.certificationlink?.message}
+                  </p>
+                )}
+              </div>
+              <div className="mb-2 ">
+                <label
+                  className="text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                  htmlFor="name"
+                >
+                  Skills
+                </label>
+                <Controller
+                  rules={{ required: "required" }}
+                  name="skills"
+                  control={control}
+                  render={({ field: { onChange, value, ref } }) => (
+                    <Select
+                      multiple
+                      placeholder=" "
+                      inputRef={ref}
+                      classNamePrefix={"react-select"}
+                      value={skillOptions?.find((c) => c.value === value)}
+                      onChange={(val) => {
+                        setSelectedSkill(true);
+                        onChange(val.map((c) => c.label));
+                      }}
+                      options={skillOptions}
+                      theme={customTheme}
+                      isMulti
+                      isSearchable
+                      autoFocus
+                      onFocus={onSelectFocus}
+                      onBlur={onSelectBlur}
+                    />
+                  )}
+                />
               </div>
 
               <div className="mb-2 relative">
@@ -343,20 +497,5 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
-export const getServerSideProps = async (context) => {
-  const { ["auth_token"]: token } = parseCookies(context);
 
-  if (token) {
-    return {
-      redirect: {
-        destination: "/apply",
-        permanet: false,
-      },
-    };
-  }
-
-  return {
-    props: {},
-  };
-};
+export default ProfessionalSignUp;
