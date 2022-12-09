@@ -28,11 +28,19 @@ const VerifyEmail = () => {
 
   const onSubmit = async () => {
     const profile = JSON.parse(localStorage.getItem("profile"));
+    const user_type = profile?.role;
     const email = profile?.email;
     async function createSendEmail() {
-      const sendEmail = await axios.post("/api/send_email", {
-        email: email,
-      });
+      let sendEmail;
+      if (user_type === "client") {
+        sendEmail = await axios.post("/api/send_email", {
+          email: email,
+        });
+      } else {
+        sendEmail = await axios.post("/api/send_email_", {
+          email: email,
+        });
+      }
 
       const result = await sendEmail.data.status;
       console.log("email", result);

@@ -28,6 +28,8 @@ const CREATE_USER_MUTATION = gql`
           role
           name
           email
+          bio
+          skills
         }
       }
     }

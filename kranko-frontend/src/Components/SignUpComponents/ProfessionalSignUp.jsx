@@ -259,7 +259,6 @@ const ProfessionalSignUp = () => {
                   control={control}
                   render={({ field: { onChange, value, ref } }) => (
                     <Select
-                      multiple
                       placeholder=" "
                       inputRef={ref}
                       classNamePrefix={"react-select"}

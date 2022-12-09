@@ -22,6 +22,8 @@ const GET_USER_PROFILE = gql`
           user
           role
           email
+          bio
+          skills
         }
       }
     }

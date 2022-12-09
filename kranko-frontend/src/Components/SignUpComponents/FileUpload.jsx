@@ -55,6 +55,7 @@ const FileUpload = () => {
   console.log(selectedPassport);
 
   const submitHandler = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
     const info = JSON.parse(localStorage.getItem("BasicInfo"));
     console.log(newSelectedPassport);
     const formData = new FormData();
@@ -90,11 +91,14 @@ const FileUpload = () => {
     const email = BasicInfo?.email;
     const username = BasicInfo?.name;
     const password = BasicInfo?.password;
-    const certification_link = "";
-    const Years_of_experience = 0;
-    const Field_of_specialisation = "";
+    const certification_link = BasicInfo?.cerificationlink;
+    const Years_of_experience = Number(BasicInfo?.yearsofexperience);
+    const Field_of_specialisation = BasicInfo?.occupation;
     const image_url = ImageInfo?.data;
     const role = roledefination?.user;
+    const bio = BasicInfo?.bio;
+    const skills = BasicInfo?.skills.toString();
+    console.log(skills);
     console.log(email, username, password, image_url, role);
 
     await signUp({
@@ -106,6 +110,8 @@ const FileUpload = () => {
       Field_of_specialisation,
       image_url,
       role,
+      bio,
+      skills,
     });
 
     localStorage.removeItem("BasicInfo");

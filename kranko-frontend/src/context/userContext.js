@@ -74,6 +74,8 @@ const UserProvider = ({ children, ...props }) => {
           user: user_profile.attributes.user,
           role: user_profile.attributes.role,
           email: user_profile.attributes.email,
+          bio: user_profile.attributes.bio,
+          skills: user_profile.attributes.skills,
         };
 
         localStorage.setItem("profile", JSON.stringify({ ...profileInfo }));
@@ -94,6 +96,8 @@ const UserProvider = ({ children, ...props }) => {
     Field_of_specialisation,
     image_url,
     role,
+    bio,
+    skills,
   }) {
     try {
       const { data: res } = await signUpMutation({
@@ -116,6 +120,8 @@ const UserProvider = ({ children, ...props }) => {
             name: username,
             email: email,
             user: res.register.user.id,
+            bio,
+            skills,
             publishedAt: new Date(),
           },
         },
@@ -177,6 +183,8 @@ const UserProvider = ({ children, ...props }) => {
           user: profile.createProfessionalDetail.data.attributes.user,
           role: profile.createProfessionalDetail.data.attributes.role,
           email: profile.createProfessionalDetail.data.attributes.email,
+          bio: profile.createProfessionalDetail.data.attributes.bio,
+          skills: profile.createProfessionalDetail.data.attributes.bio,
         };
         localStorage.setItem("profile", JSON.stringify({ ...user_profile }));
         Router.push("/verifyEmail");
