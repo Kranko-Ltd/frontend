@@ -1,6 +1,6 @@
 import React from "react";
 import { GrTextAlignFull } from "react-icons/gr"; //All icon
-import { FaPhotoVideo } from "react-icons/fa"; //entertainment
+import { FaPhotoVideo, FaFilter } from "react-icons/fa"; //entertainment
 import { BsMusicNoteBeamed, BsBank2 } from "react-icons/bs"; //music
 import { BiDumbbell } from "react-icons/bi"; //sport/lifestyle
 import { GiKnifeFork, GiTechnoHeart } from "react-icons/gi"; //hospitality
@@ -10,7 +10,14 @@ import { MdHealthAndSafety } from "react-icons/md"; //Mental health
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import ProfessionalCard from "./ProfessionalCard";
+import Select from "react-select";
 const ClientProfessionalsPage = () => {
+  // filter options
+  const options = [
+    { value: "myProfessionals", label: "My Professionals" },
+    { value: "rating", label: "Rating" },
+    { value: "recentyViewed", label: "Recently Viewed" },
+  ];
   return (
     <>
       <div className="flex justify-center items-center text-xl">
@@ -164,9 +171,18 @@ const ClientProfessionalsPage = () => {
           </SplideSlide>
         </Splide>
       </div>
+      {/* filter */}
+      <div className="flex justify-end mt-4">
+        <div className="flex justify-center items-center rounded-md mr-2 px-2 bg-white border border-secondary text-secondary">
+          <FaFilter />
+          <p>Filter by</p>
+        </div>
+
+        <Select options={options} />
+      </div>
 
       {/* professionals list */}
-      <div className="bg-white rounded-md mt-12 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 py-2 gap-3 justify-center items-center">
+      <div className="bg-white rounded-md mt-6 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 py-2 gap-3 justify-center items-center">
         <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
