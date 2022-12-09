@@ -78,7 +78,7 @@ const UserProvider = ({ children, ...props }) => {
 
         localStorage.setItem("profile", JSON.stringify({ ...profileInfo }));
 
-        if (profileInfo.role == "professional")
+        if (profileInfo.role === "professional")
           Router.push("/professional-dashboard");
         else Router.push("/client-dashboard");
       },

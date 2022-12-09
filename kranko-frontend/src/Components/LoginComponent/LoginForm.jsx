@@ -19,15 +19,16 @@ const LoginForm = () => {
   const { signIn } = useContext(userContext);
   const toastId = useRef(null);
   const router = useRouter();
+  let profile;
 
   useEffect(() => {
-    const profile = JSON.parse(localStorage.getItem("profile"));
+    profile = JSON.parse(localStorage.getItem("profile"));
     if (profile?.role === "client") {
       router.push("/client-dashboard");
     } else if (profile?.role === "professional") {
       router.push("/professional-dashboard");
     }
-  });
+  }, [profile]);
   const [isChecked, setIschecked] = useState(false);
   const {
     register,

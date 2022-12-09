@@ -88,10 +88,10 @@ export default VerifyEmail;
 export const getServerSideProps = async (context) => {
   const { ["auth_token"]: token } = parseCookies(context);
 
-  if (token) {
+  if (!token) {
     return {
       redirect: {
-        destination: "/apply",
+        destination: "/login",
         permanet: false,
       },
     };
