@@ -24,6 +24,7 @@ module.exports = {
       error: "#FF003D",
       warning: "#FFBF27",
       white: "#ffffff",
+      black:"#000000"
     },
     // fontSize: {
     //   '2xs': "11px",
