@@ -66,7 +66,7 @@ const ClientProfile = () => {
       <label className="text-sm mt-3 text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-6 z-10 origin-[0] left-2.5 peer-focus:text-green peer-focus:font-semibold peer-focus:dark:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
         Payments
       </label>
-      <button className="text-grey-900 text-sm px-2.5 pb-2.5 pt-2.5 mt-3 flex justify-between w-96 rounded bg-greyLight bg-opacity-10">
+      <button className="text-grey-900 text-sm px-2.5 pb-2.5 pt-2.5 mt-3 flex justify-between items-center w-96 rounded bg-greyLight bg-opacity-10">
         <p>Manage Payments methods</p>
         <IoIosArrowForward />
       </button>

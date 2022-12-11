@@ -11,15 +11,8 @@ export default function Home() {
         <Navbar />
         <HeroSection />
         <AboutUs />
-
-        <Mission />
-        {/*
-        <Testimonials />    
-        */}
-
-        <Mission />        
-        <Testimonials />       
-
+        <Mission />              
+        <Testimonials />
         <CallToAction />
         <Footer />
       </div>
