@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-
+import { useRouter } from "next/router";
 const ProfContact = () => {
+  const router = useRouter();
   const {
     register,
     control,
@@ -123,6 +124,23 @@ const ProfContact = () => {
               {errors.budget_explanation?.message}
             </p>
           )}
+        </div>
+        <div className="flex justify-center space-x-3">
+          <button
+            className="inline-flex items-center px-6 py-3 border-1 border-secondary text-lg md:text-base font-semibold rounded-md shadow-sm text-white bg-secondary  justify-center w-32 hover:border hover: border-greyLight hover:text-grey-900 hover:bg-white"
+            button="Submit"
+          >
+            send
+          </button>
+          <button
+            className="inline-flex items-center px-6 py-3 border-1 border-secondary text-lg md:text-base font-semibold rounded-md shadow-sm text-white bg-secondary  justify-center w-32 hover:border hover: border-greyLight hover:text-grey-900 hover:bg-white"
+            button="button"
+            onClick={() => {
+              router.push("/client-dashboard/professionals");
+            }}
+          >
+            cancel
+          </button>
         </div>
       </form>
     </div>
