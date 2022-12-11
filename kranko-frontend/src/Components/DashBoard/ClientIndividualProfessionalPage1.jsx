@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
 const ClientIndividualProfessionalPage = ({ id }) => {
+  const router = useRouter();
   console.log(id);
 
   const { loading, error, data } = useQuery(GET_USER_PROFILE);
@@ -178,7 +179,12 @@ const ClientIndividualProfessionalPage = ({ id }) => {
                   ))}
                 </div>
 
-                <button className="mt-6 px-4 w-full bg-secondary text-white rounded-md text-sm py-1.5">
+                <button
+                  className="mt-6 px-4 w-full bg-secondary text-white rounded-md text-sm py-1.5"
+                  onClick={() => {
+                    router.push("/client-dashboard/contactProfessional");
+                  }}
+                >
                   {" "}
                   Request Professional
                 </button>
