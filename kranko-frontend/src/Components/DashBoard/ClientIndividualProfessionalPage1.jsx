@@ -117,13 +117,16 @@ const ClientIndividualProfessionalPage = ({ id }) => {
             <div className="flex flex-col lg:flex-row items-center justify-between">
               {/* image */}
               <div className="bg-greyLight w-24 m-4 h-24 rounded-md flex justify-center items-center p-1">
-                <Image
-                  src={profile.attributes.image_url}
-                  width={90}
-                  height={90}
-                  //   layout="responsive"
-                  className="rounded-md "
-                />
+                {profile.attributes.image_url && (
+                  <Image
+                    src={profile?.attributes?.image_url}
+                    width={90}
+                    height={90}
+                    alt="prof image"
+                    //   layout="responsive"
+                    className="rounded-md "
+                  />
+                )}
               </div>
 
               {/* center */}
