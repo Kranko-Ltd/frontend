@@ -1,10 +1,20 @@
 import React from "react";
 import Image from "next/image";
-import { useForm } from "react-hook-form";
+import { get, useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { useRef } from "react";
+import { toast } from "react-toastify";
 
-const contact = JSON.parse(localStorage.getItem("contact"));
+const getcontact = () => {
+  const toastId = useRef(null);
+
+  const contact = JSON.parse(localStorage.getItem("contact"));
+  return contact;
+};
+
 const ProfContact = () => {
+  const contact = getcontact();
   const router = useRouter();
   const {
     register,
@@ -16,7 +26,49 @@ const ProfContact = () => {
     reValidateMode: "onChange",
     mode: "onChange",
   });
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    const user_profile = JSON.parse(localStorage.getItem("profile"));
+    //senders details
+    const user_email = user_profile?.email;
+    const user_name = user_profile?.name;
+    const user_id = user_profile?.id;
+
+    //project details
+
+    const {
+      project_title,
+      project_description,
+      time_estimation,
+      budget_explanation,
+    } = data;
+
+    //prof details
+    const prof_email = contact?.email;
+    const prof_name = contact?.name;
+    const sendEmail = async () => {
+      const sendEmail = await axios.post("/api/contact_prof", {
+        prof_email: prof_email,
+        prof_name: prof_name,
+        user_email: user_email,
+        user_name: user_name,
+        project_title: project_title,
+        project_description: project_description,
+        time_estimation: time_estimation,
+        budget_explanation: budget_explanation,
+      });
+
+      const result = await sendEmail.data.status;
+      console.log("email", result);
+      if (result.error) {
+        toast(result.error.message);
+      } else {
+        toast("message sent successfully");
+      }
+    };
+    sendEmail();
+    router.push("/client-dashboard/professional");
+  };
+  React.useEffect(() => {});
   return (
     <div className="px-5  ">
       <p className="text-grey-900 text-2xl antialiased font-semibold mt-5 ">

@@ -76,6 +76,7 @@ const UserProvider = ({ children, ...props }) => {
           email: user_profile.attributes.email,
           bio: user_profile.attributes.bio,
           skills: user_profile.attributes.skills,
+          name: user_profile.attributes.name,
         };
 
         localStorage.setItem("profile", JSON.stringify({ ...profileInfo }));
@@ -154,6 +155,7 @@ const UserProvider = ({ children, ...props }) => {
             user: user_profile.data.attributes.user,
             role: user_profile.data.attributes.role,
             email: user_profile.data.attributes.email,
+            name: user_profile.data.attributes.name,
           };
 
           localStorage.setItem("profile", jSON.stringify({ ...profileInfo }));
@@ -185,6 +187,7 @@ const UserProvider = ({ children, ...props }) => {
           email: profile.createProfessionalDetail.data.attributes.email,
           bio: profile.createProfessionalDetail.data.attributes.bio,
           skills: profile.createProfessionalDetail.data.attributes.bio,
+          name: profile.createProfessionalDetail.data.attributes.name,
         };
         localStorage.setItem("profile", JSON.stringify({ ...user_profile }));
         Router.push("/verifyEmail");
