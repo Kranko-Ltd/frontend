@@ -10,7 +10,12 @@ import { MdHealthAndSafety } from "react-icons/md"; //Mental health
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import ProfessionalCard from "./ProfessionalCard";
+import ProfessionalCard1 from "./ProfessionalCard1";
+import { useQuery } from "@apollo/client";
+
 import Select from "react-select";
+import { GET_USER_PROFILE } from "../../Queries/auth";
+import Link from "next/link";
 const ClientProfessionalsPage = () => {
   // filter options
   const options = [
@@ -18,6 +23,19 @@ const ClientProfessionalsPage = () => {
     { value: "rating", label: "Rating" },
     { value: "recentyViewed", label: "Recently Viewed" },
   ];
+  const { loading, error, data } = useQuery(GET_USER_PROFILE);
+  console.log(data);
+
+  const allUsers = data?.professionalDetails.data;
+  console.log(allUsers);
+  let professionals;
+  if (!loading) {
+    professionals = allUsers.filter(
+      (profile) => profile.attributes.role === "professional"
+    );
+    console.log(professionals);
+  }
+
   return (
     <>
       <div className="flex justify-center items-center text-xl">
@@ -183,14 +201,33 @@ const ClientProfessionalsPage = () => {
 
       {/* professionals list */}
       <div className="bg-white rounded-md mt-6 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 py-2 gap-3 justify-center items-center">
+        {professionals?.map((professional) => {
+          return (
+            <Link
+              href={{
+                pathname: "/client-dashboard/[id]",
+                query: { id: professional.id },
+              }}
+              key={professional.id}
+            >
+              <div>
+                <ProfessionalCard1
+                  image={professional.attributes.image_url}
+                  occupation={professional.attributes.Field_of_specialisation}
+                  name={professional.name}
+                />
+              </div>
+            </Link>
+          );
+        })}
+        {/* <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
         <ProfessionalCard />
-        <ProfessionalCard />
-        <ProfessionalCard />
-        <ProfessionalCard />
+        <ProfessionalCard /> */}
+        {/* <ProfessionalCard1 /> */}
       </div>
     </>
   );

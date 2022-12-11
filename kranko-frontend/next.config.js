@@ -10,6 +10,9 @@ const nextConfig = {
 // module.exports = nextConfig
 
 module.exports = {
+  images: {
+    domains: ["res.cloudinary.com"],
+  },
   env: {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
   },

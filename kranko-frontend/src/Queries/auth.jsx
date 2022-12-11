@@ -24,6 +24,7 @@ const GET_USER_PROFILE = gql`
           email
           bio
           skills
+          name
         }
       }
     }

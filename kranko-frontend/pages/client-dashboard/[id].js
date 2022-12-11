@@ -7,9 +7,13 @@ import Layout from "../../src/Components/DashBoard/Layout";
 //import DevMsg from "../../src/Components/DashBoard/DevMsg";
 import { parseCookies } from "nookies";
 import PageBelt from "../../src/Components/DashBoard/PageBelt";
-import ClientIndividualProfessionalPage from "../../src/Components/DashBoard/ClientIndividualProfessionalPage";
+import ClientIndividualProfessionalPage1 from "../../src/Components/DashBoard/ClientIndividualProfessionalPage1";
+import { useRouter } from "next/router";
 
 export default function individualProfessional() {
+  const router = useRouter();
+  const id = router.query.id;
+  console.log(id);
   // const [token, setToken] = useState(null);
   // useEffect(() => {
 
@@ -23,7 +27,7 @@ export default function individualProfessional() {
 
   return (
     <div className="flex-1 mb-8 mr-3 ml-2 mt-2">
-      <ClientIndividualProfessionalPage />
+      <ClientIndividualProfessionalPage1 id={id} />
     </div>
   );
 }
