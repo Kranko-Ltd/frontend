@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+
+const contact = JSON.parse(localStorage.getItem("contact"));
 const ProfContact = () => {
   const router = useRouter();
   const {
@@ -14,7 +16,7 @@ const ProfContact = () => {
     reValidateMode: "onChange",
     mode: "onChange",
   });
-  const onSubmit = () => {};
+  const onSubmit = (data) => {};
   return (
     <div className="px-5  ">
       <p className="text-grey-900 text-2xl antialiased font-semibold mt-5 ">
@@ -26,15 +28,18 @@ const ProfContact = () => {
       </p>
       <p className="text-xl text-grey-900 mt-4">To</p>
       <div className="w-72 bg-[#E2E3E6] p-3 flex items-center">
-        <Image
-          src="/person9.jpg"
-          height={60}
-          width={60}
-          className="rounded-full"
-        />
+        {contact?.image_url && (
+          <Image
+            src="/person9.jpg"
+            height={60}
+            width={60}
+            className="rounded-full"
+          />
+        )}
+
         <div className="ml-2">
-          <p className="text-xl font-semibold text-grey-900">Megan Stallion</p>
-          <p className="text-sm text-grey-900">Graphic designer</p>
+          <p className="text-xl font-semibold text-grey-900">{contact?.name}</p>
+          <p className="text-sm text-grey-900">{contact?.occupation}</p>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -137,6 +142,7 @@ const ProfContact = () => {
             button="button"
             onClick={() => {
               router.push("/client-dashboard/professionals");
+              localStorage.removeItem("contact");
             }}
           >
             cancel

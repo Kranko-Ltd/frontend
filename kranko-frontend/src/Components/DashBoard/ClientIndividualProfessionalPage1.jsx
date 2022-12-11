@@ -19,6 +19,15 @@ const ClientIndividualProfessionalPage = ({ id }) => {
   if (!loading) {
     profile = allUsers.find((profile) => profile.id === id);
     console.log(profile);
+    localStorage.setItem(
+      "contact",
+      JSON.stringify({
+        name: profile.attributes.name,
+        occupation: profile.attributes.Field_of_specialisation,
+        email: profile.attributes.email,
+        image_url: profile.attributes.image_url,
+      })
+    );
   }
 
   const professional = {
