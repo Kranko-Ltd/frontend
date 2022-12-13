@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import styles from "../../../styles/dashboard.module.css";
+
 import { BsArrowLeftShort, BsSearch, BsPerson } from "react-icons/bs";
 import {
   RiDashboardFill,
@@ -21,7 +21,7 @@ import LeftbarICons from "./LeftbarICons";
 import Image from "next/image";
 // import HiOutlineBanknotes from "react-icons/hi1";
 
-const LeftBar = () => {
+const ProfLeftBar = () => {
   const [showLeftBar, setShowLeftBar] = useState(true);
   const router = useRouter();
   const { logout, user } = useContext(userContext);
@@ -259,4 +259,4 @@ const LeftBar = () => {
   );
 };
 
-export default LeftBar;
+export default ProfLeftBar;
