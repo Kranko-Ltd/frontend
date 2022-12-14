@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   RiDashboardFill,
   RiPassportFill,
@@ -9,11 +9,53 @@ import { BiListUl } from "react-icons/bi";
 import { useState } from "react";
 import ProfessionalCard from "./ProfessionalCard";
 import ProfProjectCard from "./ProfProjectCard";
+import ProfProjectCard1 from "./ProfProjectCard1";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_PROJECTS } from "../../Queries/Projects";
+
+const getProfile = () => {
+  const loggedInProfessional = JSON.parse(localStorage.getItem("profile"));
+  return loggedInProfessional;
+};
 
 const ProfProjects = () => {
-    const [Requested, setRequested] = useState(true);
-    const [active, setActive] = useState(false);
-    const [completed, setCompleted] = useState(false);
+  const loggedInProfessional = getProfile();
+  const [Requested, setRequested] = useState(true);
+  const [active, setActive] = useState(false);
+  const [completed, setCompleted] = useState(false);
+
+  let requestedProjects = [];
+  let activeProjects = [];
+  let completedProjects = [];
+  let allProfProjects = [];
+
+  const {
+    data: projectData,
+    loading: projectLoading,
+    error: ProjectError,
+  } = useQuery(GET_PROJECTS);
+  const prof_id = loggedInProfessional?.id;
+  console.log(prof_id);
+
+  if (!projectLoading && !ProjectError) {
+    console.log(projectData);
+    const allProjects = projectData.projects.data;
+    console.log(allProjects);
+    allProfProjects = allProjects.filter(
+      (project) => project.attributes.professional_id === prof_id
+    );
+    console.log(allProfProjects);
+    requestedProjects = allProfProjects.filter(
+      (project) => project.attributes.project_status === "requested"
+    );
+    activeProjects = allProfProjects.filter(
+      (project) => project.attributes.project_status === "active"
+    );
+    completedProjects = allProfProjects.filter(
+      (project) => project.attributes.status === "completed"
+    );
+  }
+
   return (
     <div className="bg-white  p-6 rounded-md">
       {/* tabs navigation section */}
@@ -102,16 +144,16 @@ const ProfProjects = () => {
       </div>
       {/* end of tabs navigation section */}
       <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 ">
+        <ProfProjectCard1 />
+        {/* <ProfProjectCard />
         <ProfProjectCard />
         <ProfProjectCard />
         <ProfProjectCard />
         <ProfProjectCard />
-        <ProfProjectCard />
-        <ProfProjectCard />
-        <ProfProjectCard />
+        <ProfProjectCard /> */}
       </div>
     </div>
   );
-}
+};
 
-export default ProfProjects
+export default ProfProjects;
