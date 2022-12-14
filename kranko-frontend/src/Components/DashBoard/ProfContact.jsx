@@ -5,8 +5,14 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useRef } from "react";
 import { toast } from "react-toastify";
+import { useMutation } from "@apollo/client";
+import { CREATE_PROJECT_MUTATION } from "../../mutations/Projects";
 
 const getcontact = () => {
+  const [SaveProject, { data, loading, error }] = useMutation(
+    CREATE_PROJECT_MUTATION
+  );
+
   const toastId = useRef(null);
 
   const contact = JSON.parse(localStorage.getItem("contact"));
@@ -26,7 +32,7 @@ const ProfContact = () => {
     reValidateMode: "onChange",
     mode: "onChange",
   });
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const user_profile = JSON.parse(localStorage.getItem("profile"));
     //senders details
     const user_email = user_profile?.email;
@@ -45,6 +51,21 @@ const ProfContact = () => {
     //prof details
     const prof_email = contact?.email;
     const prof_name = contact?.name;
+    const projectInfo = await SaveProject({
+      variables: {
+        data: {
+          project_name: project_title,
+          project_description: project_description,
+          time_estimation: time_estimation,
+          project_cost: budget_explanation,
+          professional_email: prof_email,
+          client_email: user_email,
+          publishedAt: new Date(),
+        },
+      },
+    });
+    console.log(projectInfo);
+
     const sendEmail = async () => {
       const sendEmail = await axios.post("/api/contact_prof", {
         prof_email: prof_email,

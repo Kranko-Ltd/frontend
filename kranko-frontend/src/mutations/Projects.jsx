@@ -21,3 +21,4 @@ const CREATE_PROJECT_MUTATION = gql`
     }
   }
 `;
+export { CREATE_PROJECT_MUTATION };
