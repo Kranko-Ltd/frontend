@@ -48,6 +48,7 @@ const ProfProjects = () => {
     requestedProjects = allProfProjects.filter(
       (project) => project.attributes.project_status === "requested"
     );
+    console.log("requested_projects", requestedProjects);
     activeProjects = allProfProjects.filter(
       (project) => project.attributes.project_status === "active"
     );
@@ -151,7 +152,7 @@ const ProfProjects = () => {
                   <ProfProjectCard1
                     project_name={project.attributes.Project_name}
                     client_name={project.attributes.client_name}
-                    date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                    date_published={project.attributes.publishedAt}
                   />
                 );
               })
@@ -163,7 +164,7 @@ const ProfProjects = () => {
                   <ProfProjectCard1
                     project_name={project.attributes.Project_name}
                     client_name={project.attributes.client_name}
-                    date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                    date_published={project.attributes.publishedAt}
                   />
                 );
               })
@@ -174,7 +175,7 @@ const ProfProjects = () => {
                 <ProfProjectCard1
                   project_name={project.attributes.Project_name}
                   client_name={project.attributes.client_name}
-                  date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                  date_published={project.attributes.publishedAt}
                 />
               );
             })
