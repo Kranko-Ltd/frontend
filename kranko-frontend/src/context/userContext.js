@@ -32,6 +32,8 @@ const UserProvider = ({ children, ...props }) => {
       variables: { email, password },
     });
 
+    console.log(res.login.jwt);
+
     setCookie(undefined, "auth_token", res.login.jwt, {
       maxAge: 60 * 60 * 1, // 1 hour
     });

@@ -21,6 +21,8 @@ const ManagePayment = () => {
     />
   );
 
+  //------ END OF MODAL LOGIC-----
+
   const cardDetailsList = [
     { id: 1, cardNumberLastThree: "234", ExpiryMonth: 7, ExpiryDate: 27 },
     { id: 2, cardNumberLastThree: "432", ExpiryMonth: 8, ExpiryDate: 24 },

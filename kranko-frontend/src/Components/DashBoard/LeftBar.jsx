@@ -230,7 +230,7 @@ const LeftBar = () => {
             <button
               onClick={handleLogout}
               className="text-left
-            rounded-xl shadow-xl  bg-grey-900 bg-opacity-20 m-[20%] "
+            rounded-xl shadow-xl  bg-grey-900 bg-opacity-20 mt-16 w-full "
             >
               <li
                 className={`text-gray-300 text-sm flex items-center
