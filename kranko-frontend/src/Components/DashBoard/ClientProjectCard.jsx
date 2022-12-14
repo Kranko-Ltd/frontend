@@ -8,11 +8,11 @@ const ClientProjectCard = () => {
     <div className=" w-full shadow-2xl hover:scale-105 rounded-md">
       <div className="relative">
         <Image
-          src="/clientprojectimage.png"
+          src="/clientprojectimage.jpg"
           width={298}
           height={194}
           layout="responsive"
-          className="shadow-inner botton-blur-sm "
+          className="shadow-inner rounded-t-md botton-blur-sm "
         />
         <div className="absolute bottom-0 w-full bg-white  py-2 overflow-y-hidden bg-opacity-70 ">
           <p className="text-xl text-[#646F79] antialiased font-extrabold ml-1">

@@ -196,7 +196,7 @@ const ProfLeftBar = () => {
           </p>
           <>
             <Link
-              href="/client-dashboard/profile"
+              href="/professional-dashboard/profile"
               className="pt-1 w-full text-left"
             >
               <li
