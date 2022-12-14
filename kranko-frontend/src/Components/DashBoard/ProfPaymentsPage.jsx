@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import ProfPaymentCard from "./ProfPaymentCard";
 import { BiListUl } from "react-icons/bi";
 import { RiDashboardFill } from "react-icons/ri";
-import PaymentCard from "./PaymentCard";
-const ManagePayments = () => {
+const ProfPaymentsPage = () => {
   const [pending, setPending] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -94,16 +94,16 @@ const ManagePayments = () => {
         </div>
       </div>
       {/* end of tabs navigation section */}
-      <div className="mt-6 grid grid-cols-1  gap-4 ">
-        <PaymentCard />
-        <PaymentCard />
-        <PaymentCard />
-        <PaymentCard />
-        <PaymentCard />
-        <PaymentCard />
+      <div className="mt-6 grid grid-cols-1 gap-4 ">
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
       </div>
     </div>
   );
 };
 
-export default ManagePayments;
+export default ProfPaymentsPage;
