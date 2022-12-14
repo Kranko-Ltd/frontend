@@ -3,7 +3,12 @@ import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-overlays/Modal";
 import { IoMdCloseCircle } from "react-icons/io";
-const ProfProjectCard1 = ({ project_name, client_name, date_published }) => {
+const ProfProjectCard1 = ({
+  project_name,
+  client_name,
+  date_published,
+  project_id,
+}) => {
   //------ MODAL LOGIC-----
   const [showModal, setShowModal] = useState(false);
   // to close the modal
