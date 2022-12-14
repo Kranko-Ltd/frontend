@@ -97,7 +97,7 @@ const FileUpload = () => {
     const image_url = ImageInfo?.data;
     const role = roledefination?.user;
     const bio = BasicInfo?.bio;
-    const skills = BasicInfo?.skills.toString();
+    const skills = BasicInfo?.skills?.toString();
     console.log(skills);
     console.log(email, username, password, image_url, role);
 

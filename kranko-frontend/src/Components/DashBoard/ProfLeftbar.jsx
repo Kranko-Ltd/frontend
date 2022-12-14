@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-
+import styles from "../../../styles/dashboard.module.css";
 import { BsArrowLeftShort, BsSearch, BsPerson } from "react-icons/bs";
 import {
   RiDashboardFill,
