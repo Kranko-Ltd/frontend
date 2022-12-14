@@ -12,7 +12,7 @@ const ProfLayout = ({ children }) => {
         <meta name="KrankoJobs Dashboard" content="KrankoJobs Dashboard" />
         <link rel="icon" href="" />
       </Head>
-      <div className="bg-secondary bg-opacity-10 w-full h-full">
+      <div className="bg-secondary bg-opacity-10 w-full h-full ">
         <div className="flex">
           {/* <LeftBar />
           {children} */}

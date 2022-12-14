@@ -9,10 +9,6 @@ import { useMutation } from "@apollo/client";
 import { CREATE_PROJECT_MUTATION } from "../../mutations/Projects";
 
 const getcontact = () => {
-  const [SaveProject, { data, loading, error }] = useMutation(
-    CREATE_PROJECT_MUTATION
-  );
-
   const toastId = useRef(null);
 
   const contact = JSON.parse(localStorage.getItem("contact"));
@@ -21,6 +17,9 @@ const getcontact = () => {
 
 const ProfContact = () => {
   const contact = getcontact();
+  const [SaveProject, { data, loading, error }] = useMutation(
+    CREATE_PROJECT_MUTATION
+  );
   const router = useRouter();
   const {
     register,
@@ -51,15 +50,24 @@ const ProfContact = () => {
     //prof details
     const prof_email = contact?.email;
     const prof_name = contact?.name;
+    const prof_id = contact?.prof_id;
+
+    console.log(prof_id, user_id);
     const projectInfo = await SaveProject({
       variables: {
         data: {
-          project_name: project_title,
+          Project_name: project_title,
           project_description: project_description,
-          time_estimation: time_estimation,
           project_cost: budget_explanation,
           professional_email: prof_email,
+          project_status: "requested",
+          actual_cost: 0.0,
+          downpayment60: 0.0,
+          client_id: user_id,
           client_email: user_email,
+          professional_id: prof_id,
+          finalpayment40: 0.0,
+          time_estimation: time_estimation,
           publishedAt: new Date(),
         },
       },

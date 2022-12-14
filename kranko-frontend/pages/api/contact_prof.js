@@ -17,7 +17,8 @@ export default async function handler(req, res) {
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const message = {
-    to: prof_email,
+    // to: prof_email,
+    to: "s.wanza@alustudent.com",
     from: "samuelmunguti61@gmail.com",
     subject: "Project Proposal",
     text: `Hello ${prof_name}!!\n

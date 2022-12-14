@@ -26,6 +26,7 @@ const ClientIndividualProfessionalPage = ({ id }) => {
         occupation: profile.attributes.Field_of_specialisation,
         email: profile.attributes.email,
         image_url: profile.attributes.image_url,
+        prof_id: profile.id,
       })
     );
   }

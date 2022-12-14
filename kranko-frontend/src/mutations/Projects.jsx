@@ -1,9 +1,9 @@
 import { gql } from "@apollo/client";
 const CREATE_PROJECT_MUTATION = gql`
-  mutation createProject($data: ProjectInput!) {
+  mutation project_details($data: ProjectInput!) {
     createProject(data: $data) {
-      id
       data {
+        id
         attributes {
           Project_name
           project_description
@@ -16,6 +16,7 @@ const CREATE_PROJECT_MUTATION = gql`
           client_id
           professional_id
           finalpayment40
+          time_estimation
         }
       }
     }

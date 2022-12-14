@@ -22,76 +22,80 @@ const ProfProjectCard = () => {
 
   //------ END OF MODAL LOGIC-----
   return (
-    <div className=" w-full shadow-2xl hover:scale-105 rounded-md">
-      {/* Image section */}
-      <div className="relative">
-        <Image
-          src="/ProjectImage.jpg"
-          width={298}
-          height={194}
-          layout="responsive"
-          className="shadow-inner rounded-t-md botton-blur-sm "
-        />
-        <div className="absolute bottom-0 w-full bg-white  py-2 overflow-y-hidden bg-opacity-70 ">
-          <p className="text-xl text-[#646F79] antialiased font-extrabold ml-1">
-            Discover Food Ordering Project
-          </p>
-        </div>
-      </div>
-      {/* End of Image section */}
-
-      <div className="flex justify-between mx-4 mt-4">
-        <div className="flex items-center">
+    <div className=" w-full shadow-2xl hover:scale-105 rounded-md relative">
+      <div className="-z-10">
+        {/* Image section */}
+        <div className="relative">
           <Image
-            src="/notiImage.jpg"
-            height={50}
-            width={50}
-            className="rounded-full sm:display-none"
+            src="/ProjectImage.jpg"
+            width={298}
+            height={194}
+            layout="responsive"
+            className="shadow-inner rounded-t-md botton-blur-sm "
           />
-          <p className="text-primary text-grey-90 text-sm pl-3 mr-2">
-            Requested By:
-          </p>
-          <p className="text-primary font-bold text-sm">Jessica Mwakazi</p>
+          <div className="absolute bottom-0 w-full bg-white  py-2 overflow-y-hidden bg-opacity-70 ">
+            <p className="text-xl text-[#646F79] antialiased font-extrabold ml-1">
+              Discover Food Ordering Project
+            </p>
+          </div>
         </div>
-        <div className="flex gap-2">
-          <p className="text-grey-900 text-sm">Date:</p>
-          <p className="text-primary font-bold text-sm">September 12th 2021</p>
-        </div>
-      </div>
+        {/* End of Image section */}
 
-      <div className="flex justify-between items-center px-2 mt-3 pb-3">
-        <div>
-          <p className="text-secondary ml-2 hover:font-bold text-sm">
-            View request
-          </p>
+        <div className="flex justify-between mx-4 mt-4">
+          <div className="flex items-center">
+            <Image
+              src="/notiImage.jpg"
+              height={50}
+              width={50}
+              className="rounded-full sm:display-none"
+            />
+            <p className="text-primary text-grey-90 text-sm pl-3 mr-2">
+              Requested By:
+            </p>
+            <p className="text-primary font-bold text-sm">Jessica Mwakazi</p>
+          </div>
+          <div className="flex gap-2">
+            <p className="text-grey-900 text-sm">Date:</p>
+            <p className="text-primary font-bold text-sm">
+              September 12th 2021
+            </p>
+          </div>
         </div>
-        <div className="flex gap-4">
-          <button
-            className="bg-secondary hover:bg-white hover:text-secondary border border-secondary font-bold  px-4 py-1.5 w-24 rounded-md text-white text-sm"
-            onClick={() => setShowModal(true)}
-          >
-            Accept
-          </button>
-          <button
-            className="bg-error border border-error hover:text-error hover:bg-white px-4 w-24 py-1.5 rounded-md text-white text-sm"
-            onClick={() => {
-              router.push("/client-dashboard/projectTimeline");
-            }}
-          >
-            Reject
-          </button>
+
+        <div className="flex justify-between items-center px-2 mt-3 pb-3">
+          <div>
+            <p className="text-secondary ml-2 hover:font-bold text-sm">
+              View request
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <button
+              className="bg-secondary hover:bg-white hover:text-secondary border border-secondary font-bold  px-4 py-1.5 w-24 rounded-md text-white text-sm"
+              onClick={() => setShowModal(true)}
+            >
+              Accept
+            </button>
+            <button
+              className="bg-error border border-error hover:text-error hover:bg-white px-4 w-24 py-1.5 rounded-md text-white text-sm"
+              onClick={() => {
+                router.push("/client-dashboard/projectTimeline");
+              }}
+            >
+              Reject
+            </button>
+          </div>
         </div>
       </div>
 
       {/* MODAL */}
       {/* overlay Modal */}
       <Modal
-        className="modal"
+        className="modal absolute top-[40%] left-[30%] w-1/2 flex flex-col  md:left-1/3  rounded-md"
         show={showModal}
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
       >
-        <div className="bg-white flex flex-col top-1/3 left-1/2 md:left-1/3 w-1/2 rounded-md absolute">
+        <div className="">
           {/* close icon */}
           <div className="flex items-center justify-between">
             <div>
