@@ -144,7 +144,42 @@ const ProfProjects = () => {
       </div>
       {/* end of tabs navigation section */}
       <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 ">
-        <ProfProjectCard1 />
+        {Requested
+          ? requestedProjects.length > 0
+            ? requestedProjects.map((project) => {
+                return (
+                  <ProfProjectCard1
+                    project_name={project.attributes.Project_name}
+                    client_name={project.attributes.client_name}
+                    date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                  />
+                );
+              })
+            : " "
+          : active
+          ? activeProjects.length > 0
+            ? activeProjects.map((project) => {
+                return (
+                  <ProfProjectCard1
+                    project_name={project.attributes.Project_name}
+                    client_name={project.attributes.client_name}
+                    date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                  />
+                );
+              })
+            : " "
+          : completedProjects.length > 0
+          ? completedProjects.map((project) => {
+              return (
+                <ProfProjectCard1
+                  project_name={project.attributes.Project_name}
+                  client_name={project.attributes.client_name}
+                  date_published={project.attributes.publishedAt?.toLocaleDateString()}
+                />
+              );
+            })
+          : " "}
+        {/* <ProfProjectCard1 /> */}
         {/* <ProfProjectCard />
         <ProfProjectCard />
         <ProfProjectCard />

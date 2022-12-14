@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-overlays/Modal";
 import { IoMdCloseCircle } from "react-icons/io";
-const ProfProjectCard = () => {
+const ProfProjectCard1 = ({ project_name, client_name, date_published }) => {
   //------ MODAL LOGIC-----
   const [showModal, setShowModal] = useState(false);
   // to close the modal
@@ -35,7 +35,7 @@ const ProfProjectCard = () => {
           />
           <div className="absolute bottom-0 w-full bg-white  py-2 overflow-y-hidden bg-opacity-70 ">
             <p className="text-xl text-[#646F79] antialiased font-extrabold ml-1">
-              Discover Food Ordering Project
+              {project_name}
             </p>
           </div>
         </div>
@@ -52,13 +52,11 @@ const ProfProjectCard = () => {
             <p className="text-primary text-grey-90 text-sm pl-3 mr-2">
               Requested By:
             </p>
-            <p className="text-primary font-bold text-sm">Jessica Mwakazi</p>
+            <p className="text-primary font-bold text-sm">{client_name}</p>
           </div>
           <div className="flex gap-2">
             <p className="text-grey-900 text-sm">Date:</p>
-            <p className="text-primary font-bold text-sm">
-              September 12th 2021
-            </p>
+            <p className="text-primary font-bold text-sm">{date_published}</p>
           </div>
         </div>
 
@@ -168,4 +166,4 @@ const ProfProjectCard = () => {
   );
 };
 
-export default ProfProjectCard;
+export default ProfProjectCard1;
