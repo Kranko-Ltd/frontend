@@ -7,6 +7,7 @@ async function Handler(req, res) {
     const { price, paymentID, Project_name } = req.body;
     console.log(req.body);
     const priceInCents = price * 100;
+    4;
 
     try {
       // Create Checkout Sessions from body params.
@@ -34,8 +35,8 @@ async function Handler(req, res) {
         // ],
         // mode: "payment",
 
-        success_url: `${req.headers.origin}/payments/?success=true&payment_id=${paymentID}`, //pass pay id
-        cancel_url: `${req.headers.origin}/payments/?canceled=true`,
+        success_url: `${req.headers.origin}/paymentsuccess/?success=true&payment_id=${paymentID}`, //pass pay id
+        cancel_url: `${req.headers.origin}/paymentfailed`,
       });
       res.status(200).json({ id: session.id });
     } catch (err) {

@@ -2,6 +2,7 @@
 const nextConfig = {
   env: {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   },
   reactStrictMode: true,
   swcMinify: true,
@@ -15,6 +16,7 @@ module.exports = {
   },
   env: {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
