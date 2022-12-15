@@ -47,6 +47,7 @@ const ProfProjectCard1 = ({
           data: {
             actual_cost: Number(finalAmount),
             prof_comments: comments,
+            downpayment60_status: "pending",
           },
         },
       });
@@ -217,14 +218,14 @@ const ProfProjectCard1 = ({
 
               <div className="flex items-center justify-center gap-4 w-full">
                 <button
-                  className="bg-secondary text-sm border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4"
+                  className="bg-secondary  border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4"
                   button="Submit"
                 >
                   Send
                 </button>
                 <button
                   onClick={handleClose}
-                  className="bg-error border text-sm border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
+                  className="bg-error border  border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
                   button="Button"
                 >
                   Cancel

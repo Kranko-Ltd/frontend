@@ -3,10 +3,55 @@ import { useState } from "react";
 import { BiListUl } from "react-icons/bi";
 import { RiDashboardFill } from "react-icons/ri";
 import PaymentCard from "./PaymentCard";
+import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
+import { GET_PROJECTS } from "../../Queries/Projects";
 const ManagePayments = () => {
+  const [loggedInClient, setLoggedInClient] = useState(" ");
+  React.useEffect(() => {
+    const loggedClient = JSON.parse(localStorage.getItem("profile"));
+    setLoggedInClient(loggedClient);
+  }, []);
+
   const [pending, setPending] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
+  const {
+    data: PaymentData,
+    loading: PaymentLoading,
+    error: PaymentError,
+  } = useQuery(GET_PROJECTS);
+
+  let pendingpayments = [];
+  let completedPayments = [];
+  let failedpayments = [];
+  const client_id = loggedInClient?.id;
+  console.log(client_id);
+  if (!PaymentLoading && !PaymentError) {
+    console.log(PaymentData);
+    const allProjects = PaymentData.projects.data;
+    console.log(allProjects);
+    const allClientPayments = allProjects.filter(
+      (project) => project.attributes.client_id === client_id
+    );
+    pendingpayments = allClientPayments.filter(
+      (payment) =>
+        payment.attributes.downpayment60_status === "pending" ||
+        payment.attributes.finalpayment40_status === "pending"
+    );
+    console.log(pendingpayments);
+    completedPayments = allClientPayments.filter(
+      (payment) =>
+        payment.attributes.downpayment60_status === "completed" ||
+        payment.attributes.finalpayment40_status === "completed"
+    );
+    console.log(completedPayments);
+    failedpayments = allClientPayments.filter(
+      (payment) =>
+        payment.attributes.downpayment60_status === "failed" ||
+        payment.attributes.finalpayment40_status === "failed"
+    );
+    console.log(failedpayments);
+  }
 
   const userPayments = [
     {
@@ -122,19 +167,65 @@ const ManagePayments = () => {
       </div>
       {/* end of tabs navigation section */}
       <div className="mt-6 grid grid-cols-1  gap-4 ">
-        {userPayments.map((payment, index) => {
-          return(<div key={index}>        
-            <PaymentCard
-              projectName={payment.projectName}
-              professionalName={payment.professionalName}
-              date={payment.date}
-              totalAmount={payment.totalAmount}
-              depositAmount={payment.depositAmount}
-              finalInstallment={payment.finalAmount}
-            />
-          </div>)
+        {/* {userPayments.map((payment, index) => {
           
-        })}
+          return (
+            <div key={index}>
+              <PaymentCard
+                projectName={payment.projectName}
+                professionalName={payment.professionalName}
+                date={payment.date}
+                totalAmount={payment.totalAmount}
+                depositAmount={payment.depositAmount}
+                finalInstallment={payment.finalAmount}
+              />
+            </div>
+          );
+        })} */}
+        {pending
+          ? pendingpayments.length > 0
+            ? pendingpayments.map((payment) => {
+                return (
+                  <PaymentCard
+                    projectName={payment.attributes.Project_name}
+                    professionalName={payment.attributes.professional_name}
+                    date={payment.attributes.publishedAt}
+                    totalAmount={payment.attributes.actual_cost}
+                    depositAmount={0.6 * payment.attributes.actual_cost}
+                    finalInstallment={0.4 * payment.attributes.actual_cost}
+                  />
+                );
+              })
+            : " "
+          : completed
+          ? completedPayments.length > 0
+            ? completedPayments.map((payment) => {
+                return (
+                  <PaymentCard
+                    projectName={payment.attributes.Project_name}
+                    professionalName={payment.attributes.professional_name}
+                    date={payment.attributes.publishedAt}
+                    totalAmount={payment.attributes.actual_cost}
+                    depositAmount={0.6 * payment.attributes.actual_cost}
+                    finalInstallment={0.4 * payment.attributes.actual_cost}
+                  />
+                );
+              })
+            : " "
+          : failedpayments.length > 0
+          ? failedpayments.map((payment) => {
+              return (
+                <PaymentCard
+                  projectName={payment.attributes.Project_name}
+                  professionalName={payment.attributes.professional_name}
+                  date={payment.attributes.publishedAt}
+                  totalAmount={payment.attributes.actual_cost}
+                  depositAmount={0.6 * payment.attributes.actual_cost}
+                  finalInstallment={0.4 * payment.attributes.actual_cost}
+                />
+              );
+            })
+          : " "}
       </div>
     </div>
   );

@@ -18,6 +18,9 @@ const GET_PROJECTS = gql`
           finalpayment40
           time_estimation
           client_name
+          downpayment60_status
+          finalpayment40_status
+          professional_name
           publishedAt
         }
       }

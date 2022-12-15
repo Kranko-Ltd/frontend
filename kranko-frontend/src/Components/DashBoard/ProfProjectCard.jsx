@@ -6,10 +6,6 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { useMutation } from "@apollo/client";
 
 const ProfProjectCard = () => {
-  const [
-    UpdateProject,
-    { data: projectData, loading: ProjectLoading, error: ProjectError },
-  ] = useMutation(UPDATE_PROJECT);
   //------ MODAL LOGIC-----
   const [showModal, setShowModal] = useState(false);
   // to close the modal and submit form
@@ -101,7 +97,7 @@ const ProfProjectCard = () => {
       {/* MODAL */}
       {/* overlay Modal */}
       <Modal
-        className="modal bg-white absolute top-[40%] left-[30%] w-1/2 flex flex-col  md:left-1/3  rounded-md"
+        className="modal absolute top-[40%] left-[30%] w-1/2 flex flex-col  md:left-1/3  rounded-md"
         show={showModal}
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
@@ -163,7 +159,7 @@ const ProfProjectCard = () => {
               </div>
 
               <div className="flex items-center justify-center gap-4 w-full">
-                <button className="bg-secondary text-sm border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4">
+                <button className="bg-secondary border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4">
                   Send
                 </button>
                 <button
@@ -171,7 +167,7 @@ const ProfProjectCard = () => {
                     handleClose;
                     onSubmit();
                   }}
-                  className="bg-error border text-sm border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
+                  className="bg-error border  border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
                 >
                   Cancel
                 </button>
