@@ -1,43 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import ProfPaymentCard from "./ProfPaymentCard";
 import { BiListUl } from "react-icons/bi";
 import { RiDashboardFill } from "react-icons/ri";
-import PaymentCard from "./PaymentCard";
-const ManagePayments = () => {
+const ProfPaymentsPage = () => {
   const [pending, setPending] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [failed, setFailed] = useState(false);
-
-  const userPayments = [
-    {
-      projectName: "Food Delivery App",
-      professionalName: "Jessie Umuhire",
-      date: "12th December 2022",
-      totalAmount: 4000,
-      depositAmount: 400,
-      finalAmount: 3600,
-    },
-    {
-      projectName: "Gym App",
-      professionalName: "Benson Wachira",
-      date: "10th December 2022",
-      totalAmount: 5000,
-      depositAmount: 500,
-      finalAmount: 4600,
-    },
-    {
-      projectName: "Wellness App",
-      professionalName: "Aime Lumumba",
-      date: "10th December 2022",
-      totalAmount: 5000,
-      depositAmount: 500,
-      finalAmount: 4600,
-    },
-  ];
   return (
     <div className="bg-white  p-6 rounded-md">
       {/* tabs navigation section */}
-      <p className="text-2xl text-primary  font-bold">Payments</p>
+      <p className="text-2xl text-primary  font-bold">Projects</p>
       <div className="flex justify-between mt-5">
         <div className="flex ">
           {pending ? (
@@ -121,23 +94,16 @@ const ManagePayments = () => {
         </div>
       </div>
       {/* end of tabs navigation section */}
-      <div className="mt-6 grid grid-cols-1  gap-4 ">
-        {userPayments.map((payment, index) => {
-          return(<div key={index}>        
-            <PaymentCard
-              projectName={payment.projectName}
-              professionalName={payment.professionalName}
-              date={payment.date}
-              totalAmount={payment.totalAmount}
-              depositAmount={payment.depositAmount}
-              finalInstallment={payment.finalAmount}
-            />
-          </div>)
-          
-        })}
+      <div className="mt-6 grid grid-cols-1 gap-4 ">
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
+        <ProfPaymentCard />
       </div>
     </div>
   );
 };
 
-export default ManagePayments;
+export default ProfPaymentsPage;

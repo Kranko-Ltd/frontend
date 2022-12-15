@@ -9,7 +9,6 @@ import { GrTechnology } from "react-icons/gr"; //technology
 import { MdHealthAndSafety } from "react-icons/md"; //Mental health
 import "@splidejs/react-splide/css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import ProfessionalCard from "./ProfessionalCard";
 import ProfessionalCard1 from "./ProfessionalCard1";
 import { useQuery } from "@apollo/client";
 

@@ -101,7 +101,7 @@ const ProfProjectCard = () => {
       {/* MODAL */}
       {/* overlay Modal */}
       <Modal
-        className="modal absolute top-[40%] left-[30%] w-1/2 flex flex-col  md:left-1/3  rounded-md"
+        className="modal bg-white absolute top-[40%] left-[30%] w-1/2 flex flex-col  md:left-1/3  rounded-md"
         show={showModal}
         onHide={handleClose}
         renderBackdrop={renderBackdrop}
