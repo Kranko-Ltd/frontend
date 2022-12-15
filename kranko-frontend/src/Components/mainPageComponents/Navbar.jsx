@@ -10,6 +10,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MdAccountCircle } from "react-icons/md";
+import { toast } from "react-toastify";
 
 //import  LoadingAnimation from "./LoadingAnimation";
 // import  ErrorPage from "./ErrorPage";
@@ -31,9 +32,13 @@ const NavBar = (props) => {
 
   const [show, handleShow] = useState();
   const [nav, setNav] = useState(false);
+  const [loggedInuser, setLoggedInuser] = useState("");
   const handleClick = () => setNav(!nav);
 
   useEffect(() => {
+    const profile = JSON.parse(localStorage.getItem("profile"));
+    const role = profile?.role;
+    setLoggedInuser(role);
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         handleShow(true);
@@ -46,13 +51,13 @@ const NavBar = (props) => {
         } else handleShow(false);
       });
     };
-  }, []);
+  }, [loggedInuser]);
 
   const handleDashboard = () => {
-    if (roleRes.me.role.name == "Administrator") {
-      router.push("/manager-dashboard");
+    if (loggedInuser == "professional") {
+      router.push("/professional-dashboard");
     } else {
-      router.push("/dashboard");
+      router.push("/client-dashboard");
     }
   };
 
@@ -102,7 +107,7 @@ const NavBar = (props) => {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95"
                         >
-                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-secondary ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <Menu.Item>
                               {({ active }) => (
                                 <button
