@@ -1,18 +1,65 @@
 import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Modal from "react-overlays/Modal";
 import { IoMdCloseCircle } from "react-icons/io";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { UPDATE_PROJECT } from "../../mutations/Projects";
+import { useMutation } from "@apollo/client";
 const ProfProjectCard1 = ({
   project_name,
   client_name,
   date_published,
   project_id,
 }) => {
+  const toastId = useRef(null);
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
+    reValidateMode: "onChange",
+    mode: "onChange",
+  });
+  const [
+    updateProject,
+    { data: projectData, loading: ProjectLoading, error: ProjectError },
+  ] = useMutation(UPDATE_PROJECT);
+
   //------ MODAL LOGIC-----
   const [showModal, setShowModal] = useState(false);
   // to close the modal
   var handleClose = () => setShowModal(false);
+  const onSubmit = async (data) => {
+    const { comments, finalAmount } = data;
+    console.log(comments, finalAmount);
+    console.log(project_id);
+    console.log(typeof finalAmount);
+
+    try {
+      toastId.current = toast("Please Wait", { autoClose: false });
+      await updateProject({
+        variables: {
+          id: project_id,
+          data: {
+            actual_cost: Number(finalAmount),
+            prof_comments: comments,
+          },
+        },
+      });
+      toast.update(toastId.current, {
+        render: "Price updated successfully",
+        type: toast.TYPE.SUCCESS,
+        autoClose: 2000,
+      });
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   // to save when save it clicked
   var handleSuccess = () => {
     console.log("Success");
@@ -118,7 +165,10 @@ const ProfProjectCard1 = ({
           </div>
 
           {/* form */}
-          <form className="bg-white rounded-lg w-full">
+          <form
+            className="bg-white rounded-lg w-full"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             {/* input fields */}
             <div className="mt-4 w-full flex flex-col items-center px-4">
               <div className="w-full">
@@ -129,12 +179,19 @@ const ProfProjectCard1 = ({
                   Final Amount
                 </label>
                 <input
+                  {...register("finalAmount", {
+                    required: "Final Amount  is required",
+                  })}
                   className="p-1.5 border  w-full border-greyLight text-xs font-bold rounded-md focus:border-secondary focus:ring-secondary"
                   type="number"
                   placeholder="Enter the Project's final costing"
-                  name=""
                   id=""
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">
+                    {errors.finalAmount?.message}
+                  </p>
+                )}
               </div>
               <div className="mt-4 w-full">
                 <label
@@ -144,21 +201,31 @@ const ProfProjectCard1 = ({
                   Comments
                 </label>
                 <input
+                  {...register("comments", {
+                    required: "comments are required",
+                  })}
                   className="p-1.5 border h-16 w-full border-greyLight text-xs font-bold rounded-md focus:border-secondary focus:ring-secondary"
                   type="message"
                   placeholder="Any Comments"
-                  name=""
-                  id=""
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-xs">
+                    {errors.comments?.message}
+                  </p>
+                )}
               </div>
 
               <div className="flex items-center justify-center gap-4 w-full">
-                <button className="bg-secondary text-sm border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4">
+                <button
+                  className="bg-secondary text-sm border border-secondary text-white font-bold text-sm hover:bg-white hover:text-secondary px-4 py-1.5 rounded-md my-4"
+                  button="Submit"
+                >
                   Send
                 </button>
                 <button
                   onClick={handleClose}
                   className="bg-error border text-sm border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
+                  button="Button"
                 >
                   Cancel
                 </button>

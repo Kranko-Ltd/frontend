@@ -3,11 +3,20 @@ import Image from "next/image";
 import { useState } from "react";
 import Modal from "react-overlays/Modal";
 import { IoMdCloseCircle } from "react-icons/io";
+import { useMutation } from "@apollo/client";
+
 const ProfProjectCard = () => {
+  const [
+    UpdateProject,
+    { data: projectData, loading: ProjectLoading, error: ProjectError },
+  ] = useMutation(UPDATE_PROJECT);
   //------ MODAL LOGIC-----
   const [showModal, setShowModal] = useState(false);
-  // to close the modal
-  var handleClose = () => setShowModal(false);
+  // to close the modal and submit form
+  var handleClose = () => {
+    setShowModal(false);
+  };
+
   // to save when save it clicked
   var handleSuccess = () => {
     console.log("Success");
@@ -71,7 +80,9 @@ const ProfProjectCard = () => {
           <div className="flex gap-4">
             <button
               className="bg-secondary hover:bg-white hover:text-secondary border border-secondary font-bold  px-4 py-1.5 w-24 rounded-md text-white text-sm"
-              onClick={() => setShowModal(true)}
+              onClick={() => {
+                setShowModal(true);
+              }}
             >
               Accept
             </button>
@@ -128,7 +139,8 @@ const ProfProjectCard = () => {
                 <input
                   className="p-1.5 border  w-full border-greyLight text-xs font-bold rounded-md focus:border-secondary focus:ring-secondary"
                   type="number"
-                  placeholder="Enter the Project's final costing"
+                  placeholder="Enter the Project's final costing  in USD"
+                  required
                   name=""
                   id=""
                 />
@@ -144,6 +156,7 @@ const ProfProjectCard = () => {
                   className="p-1.5 border h-16 w-full border-greyLight text-xs font-bold rounded-md focus:border-secondary focus:ring-secondary"
                   type="message"
                   placeholder="Any Comments"
+                  required
                   name=""
                   id=""
                 />
@@ -154,7 +167,10 @@ const ProfProjectCard = () => {
                   Send
                 </button>
                 <button
-                  onClick={handleClose}
+                  onClick={() => {
+                    handleClose;
+                    onSubmit();
+                  }}
                   className="bg-error border text-sm border-error text-white font-bold text-sm hover:bg-white hover:text-error px-4 py-1.5 rounded-md my-4"
                 >
                   Cancel

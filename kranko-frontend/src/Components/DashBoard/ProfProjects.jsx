@@ -13,13 +13,19 @@ import ProfProjectCard1 from "./ProfProjectCard1";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_PROJECTS } from "../../Queries/Projects";
 
-const getProfile = () => {
-  const loggedInProfessional = JSON.parse(localStorage.getItem("profile"));
-  return loggedInProfessional;
-};
+// const getProfile = () => {
+//   const loggedInProfessional = JSON.parse(localStorage.getItem("profile"));
+//   return loggedInProfessional;
+// };
 
 const ProfProjects = () => {
-  const loggedInProfessional = getProfile();
+  const [loggedInProfessional, setLoggedProfessional] = useState(" ");
+  React.useEffect(() => {
+    const loggedProfessional = JSON.parse(localStorage.getItem("profile"));
+    setLoggedProfessional(loggedProfessional);
+  }, []);
+  console.log(loggedInProfessional);
+
   const [Requested, setRequested] = useState(true);
   const [active, setActive] = useState(false);
   const [completed, setCompleted] = useState(false);
