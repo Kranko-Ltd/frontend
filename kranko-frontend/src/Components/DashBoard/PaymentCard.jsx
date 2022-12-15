@@ -4,6 +4,7 @@ import { BsCalendarDateFill } from "react-icons/bs";
 import { loadStripe } from "@stripe/stripe-js";
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import { GET_PROJECTS } from "../../Queries/Projects";
+import axios from "axios";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -38,12 +39,13 @@ const PaymentCard = ({
   }
 
   const handlePayments = async () => {
+    const paymentID = project_id;
     async function createCheckOutSession() {
       const stripe = await stripePromise;
 
       const checkoutSession = await axios.post("/api/checkout_sessions", {
         price: stripeID,
-        email: user.email,
+        //email: user.email,
         paymentID: paymentID,
         Project_name: project.attributes.Project_name,
       });
