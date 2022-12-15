@@ -24,7 +24,7 @@ const ManagePayments = () => {
   let pendingpayments = [];
   let completedPayments = [];
   let failedpayments = [];
-  const client_id = loggedInClient?.id;
+  const client_id = loggedInClient?.user;
   console.log(client_id);
   if (!PaymentLoading && !PaymentError) {
     console.log(PaymentData);

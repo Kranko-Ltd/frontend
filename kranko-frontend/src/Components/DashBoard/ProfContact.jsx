@@ -36,7 +36,7 @@ const ProfContact = () => {
     //senders details
     const user_email = user_profile?.email;
     const user_name = user_profile?.name;
-    const user_id = user_profile?.id;
+    const user_id = user_profile?.user;
 
     //project details
 
@@ -95,7 +95,7 @@ const ProfContact = () => {
       }
     };
     sendEmail();
-    router.push("/client-dashboard/professional");
+    router.push("/client-dashboard/professionals");
   };
   React.useEffect(() => {});
   return (

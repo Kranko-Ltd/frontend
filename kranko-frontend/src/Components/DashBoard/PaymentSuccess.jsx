@@ -53,7 +53,7 @@ const PaymentSuccess = () => {
           },
         },
       });
-    } else {
+    } else if (payment40 === true) {
       updateProject({
         variables: {
           id: payment_id,

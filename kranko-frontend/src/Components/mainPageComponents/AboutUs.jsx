@@ -55,9 +55,7 @@ const AboutUs = () => {
             Providing a seamless experience to both clients and professionals in
             their quest to fulfill their wants
           </p>
-          <div className="w-1/2">
-            <Button1 btnCaption="Learn More" href="register1" />
-          </div>
+          <div className="w-1/2"></div>
 
           <div className="mb-4" />
         </div>
