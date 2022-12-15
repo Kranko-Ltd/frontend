@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 import { UPDATE_PROJECT } from "../../mutations/Projects";
 import { GET_PROJECTS } from "../../Queries/Projects";
-import { UserContext } from "../../context/UserContext";
+import { userContext } from "../../context/userContext";
 
 const PaymentSuccess = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(userContext);
   const router = useRouter();
+  const queryKey = "payment_id";
   const payment_id =
     router.query[queryKey] ||
     router.asPath.match(new RegExp(`[&?]${queryKey}=(.*)(&|$)`))[1];
@@ -21,6 +22,8 @@ const PaymentSuccess = () => {
   const { data, loading, error } = useQuery(GET_PROJECTS);
 
   let payment40;
+  let payment40amount;
+  let payment60amount;
   let payment60;
   let project;
 
@@ -31,8 +34,10 @@ const PaymentSuccess = () => {
     project = allProjects.find((project) => project.id === payment_id);
     if (project.attributes.downpayment60_status === "pending") {
       payment60 = true;
+      payment60amount = 0.6 * project.attributes.actual_cost;
     } else if (project.attributes.finalpayment40_status === "pending") {
       payment40 = true;
+      payment40amount = 0.4 * project.attributes.actual_cost;
     }
   }
 
@@ -44,7 +49,7 @@ const PaymentSuccess = () => {
           data: {
             downpayment60_status: "completed",
             project_status: "active",
-            downpayment60: 0.6 * project.attributes.actual_cost,
+            downpayment60: payment60amount,
           },
         },
       });
@@ -55,12 +60,12 @@ const PaymentSuccess = () => {
           data: {
             finalpayment40_status: "completed",
             project_status: "completed",
-            finalpayment40: 0.4 * project.attributes.actual_cost,
+            finalpayment40: payment40amount,
           },
         },
       });
     }
-  }, [user]);
+  }, [project]);
 
   return (
     <div className=" h-screen flex flex-col items-center bg-white rounded-md">
@@ -71,7 +76,12 @@ const PaymentSuccess = () => {
       <p className="text-grey-900">
         Your project will now be activated. Stay tuned for updates
       </p>
-      <button className="text-white hover:text-secondary border border-secondary bg-secondary hover:bg-white rounded-md px-4 py-2 mt-8">
+      <button
+        className="text-white hover:text-secondary border border-secondary bg-secondary hover:bg-white rounded-md px-4 py-2 mt-8"
+        onClick={() => {
+          router.push("/client-dashboard/projects");
+        }}
+      >
         Project Page
       </button>
     </div>

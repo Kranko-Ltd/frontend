@@ -35,8 +35,8 @@ async function Handler(req, res) {
         // ],
         // mode: "payment",
 
-        success_url: `${req.headers.origin}/paymentsuccess/?success=true&payment_id=${paymentID}`, //pass pay id
-        cancel_url: `${req.headers.origin}/paymentfailed`,
+        success_url: `${req.headers.origin}/client-dashboard/paymentsuccess/?success=true&payment_id=${paymentID}`, //pass pay id
+        cancel_url: `${req.headers.origin}/client-dashboard/paymentfailed`,
       });
       res.status(200).json({ id: session.id });
     } catch (err) {
