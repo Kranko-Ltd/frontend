@@ -6,20 +6,28 @@ import { BsPerson } from "react-icons/bs";
 import Layout from "../../src/Components/DashBoard/Layout";
 //import DevMsg from "../../src/Components/DashBoard/DevMsg";
 import { parseCookies } from "nookies";
-import PageBelt from "../../src/Components/DashBoard/PageBelt";
-import DashboardPage from "../../src/Components/DashBoard/DashboardPage";
+import PaymentFailed from "../../src/Components/DashBoard/PaymentFailed";
+export default function paymentfailed() {
+  // const [token, setToken] = useState(null);
+  // useEffect(() => {
 
-export default function Dashboard() {
+  //     const authToken = localStorage.getItem(AUTH_TOKEN);
+  //     setToken(authToken);
+  //     // console.log("The token: ", authToken);
+
+  //     if (!authToken) Router.push(h'/login');
+
+  // }, []);
 
   return (
     <div className="flex-1 mb-8 mr-3 ml-2 mt-2">
-      <DashboardPage />
+      <PaymentFailed />
     </div>
   );
 }
 
-Dashboard.getLayout = function getLayout(Dashboard) {
-  return <Layout>{Dashboard}</Layout>;
+paymentfailed.getLayout = function getLayout(paymentfailed) {
+  return <Layout>{paymentfailed}</Layout>;
 };
 
 export const getServerSideProps = async (context) => {

@@ -10,16 +10,6 @@ import PageBelt from "../../src/Components/DashBoard/PageBelt";
 import ManagePayment from "../../src/Components/DashBoard/ManagePayment";
 
 export default function payments() {
-  // const [token, setToken] = useState(null);
-  // useEffect(() => {
-
-  //     const authToken = localStorage.getItem(AUTH_TOKEN);
-  //     setToken(authToken);
-  //     // console.log("The token: ", authToken);
-
-  //     if (!authToken) Router.push(h'/login');
-
-  // }, []);
 
   return (
     <div className="flex-1 mb-8 mr-3 ml-2 mt-2">
