@@ -56,7 +56,7 @@ const AboutUs = () => {
             their quest to fulfill their wants
           </p>
           <div className="w-1/2">
-            <Button1 btnCaption="Learn More" href="SignUp" />
+            <Button1 btnCaption="Learn More" href="register1" />
           </div>
 
           <div className="mb-4" />
