@@ -1,27 +1,29 @@
-import React from 'react'
+import React from "react";
 import Training from "../../../public/training.png";
 import Money from "../../../public/money.png";
 import Goal from "../../../public/goal.png";
 const Mission = () => {
- 
   const MissionArray = [
     {
       imageName: "training",
-      heading: "Lorem Ipsum",
-      content:"Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on.",
+      heading: "eradicate unemployment",
+      content:
+        "Data from World Bank shows Africa faces unemployment levels of 70% amongst its youth. ",
     },
     {
       imageName: "money",
-      heading: "Lorem Ipsum",
-      content:"Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on.",
+      heading: "youth empowerment",
+      content:
+        "KrankoJobs will provide the youth with an opportunity to use their skills to make a living. ",
     },
     {
       imageName: "goal",
-      heading: "Lorem Ipsum",
-      content:"Stronger unpacked felicity to of mistaken. Fanny at wrong table ye in. Be on easily cannot innate in lasted months on.",
+      heading: "Economic independency",
+      content:
+        "With unemployment, we are able enhance self reliance thereby improving standards of living. ",
     },
   ];
-  
+
   return (
     <div>
       <div className="flex flex-col items-center">
@@ -51,6 +53,6 @@ const Mission = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Mission
+export default Mission;

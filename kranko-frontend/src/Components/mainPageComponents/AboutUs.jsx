@@ -49,11 +49,11 @@ const AboutUs = () => {
         {/* text */}
         <div className="w-full m-8 mt-16 md:mt-0.5 flex flex-col md:justify-center">
           <p className="text-2xl font-bold mb-8 mr-4">
-            Lorem ipsum dolor sit amet ipsum dolor
+            KrankoJobs offers its platform as a service
           </p>
           <p className="font-bold text-lg mb-8 mr-4 flex align-middle">
-            Stronger unpacked felicity to of mistaken. Fanny at wrong table ye
-            in. Be on easily cannot innate in lasted months on.{" "}
+            Providing a seamless experience to both clients and professionals in
+            their quest to fulfill their wants
           </p>
           <div className="w-1/2">
             <Button1 btnCaption="Learn More" href="SignUp" />

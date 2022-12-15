@@ -11,49 +11,47 @@ const Testimonials = () => {
       personName: "Anita Hudson",
       profession: "Accountant",
       content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "KrankoJobs has made it easy to obtain clients in quest of my services",
     },
     {
       imageName: "person1",
-      personName: "Anita Hudson",
-      profession: "Accountant",
+      personName: "Sulivan Rosisky",
+      profession: "Cloud Engineer",
       content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "I have generated more income for the last six months, thanks to krankoJobs,",
     },
     {
       imageName: "person1",
       personName: "Anita Hudson",
-      profession: "Accountant",
+      profession: "Cloud Engineer",
       content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "I have generated more income for the last six months, thanks to krankoJobs,,",
     },
     {
       imageName: "person1",
-      personName: "Anita Hudson",
-      profession: "Accountant",
+      personName: "Cynthia Mpathi",
+      profession: "UI/UX specialist",
       content:
         "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
     },
     {
       imageName: "person7",
-      personName: "Anita Hudson",
+      personName: "Sofia Adeyemi",
       profession: "Accountant",
       content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+        "Krankojobs has given me an opportunity to explore my different diverse talents,",
     },
     {
       imageName: "person7",
       personName: "Anita Hudson",
       profession: "Accountant",
-      content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      content: "I love the service catalogue of KrankoJobs,",
     },
     {
       imageName: "person7",
       personName: "Anita Hudson",
       profession: "Accountant",
-      content:
-        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      content: "An equal opportunity provider to talented individuals,",
     },
   ];
   return (
