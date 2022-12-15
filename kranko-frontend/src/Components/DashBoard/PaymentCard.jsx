@@ -1,7 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import { BsCalendarDateFill } from "react-icons/bs";
-const PaymentCard = ({ projectName, professionalName, date,totalAmount, depositAmount,finalInstallment }) => {
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
+const PaymentCard = ({
+  projectName,
+  professionalName,
+  date,
+  totalAmount,
+  depositAmount,
+  finalInstallment,
+  project_id,
+}) => {
   return (
     <div className=" w-full shadow-2xl hover:scale-105 rounded-md relative">
       <div>
@@ -29,11 +42,11 @@ const PaymentCard = ({ projectName, professionalName, date,totalAmount, depositA
                 <p className="text-primary text-sm">{date}</p>
               </div>
               <div className="flex gap-4 my-2 w-full">
-                <button className="bg-secondary w-1/2 hover:bg-white hover:text-secondary border border-secondary font-bold  px-4 py-1.5 w-24 rounded-md text-white text-sm">
+                <button className="bg-secondary w-1/2 hover:bg-white hover:text-secondary border border-secondary font-bold  px-4 py-1.5  rounded-md text-white text-sm">
                   Process Payment
                 </button>
                 <button
-                  className="bg-error border w-1/2 border-error hover:text-error hover:bg-white px-4 w-24 py-1.5 rounded-md text-white text-sm"
+                  className="bg-error border w-1/2 border-error hover:text-error hover:bg-white px-4  py-1.5 rounded-md text-white text-sm"
                   onClick={() => {
                     router.push("/client-dashboard/projectTimeline");
                   }}
@@ -46,16 +59,22 @@ const PaymentCard = ({ projectName, professionalName, date,totalAmount, depositA
               {/* Amounts */}
               <div className="flex items-center gap-4 mr-4">
                 <p className="text-xs text-grey-900">Total Amount</p>
-                <p className="text-grey-900 font-bold text-2xl">$ {totalAmount}</p>
+                <p className="text-grey-900 font-bold text-2xl">
+                  $ {totalAmount}
+                </p>
               </div>
               <div>
                 <div className="flex items-center gap-4">
                   <p className="text-xs text-grey-900">Deposit Amount</p>
-                  <p className="text-grey-900 text-2xl font-bold">$ {depositAmount}</p>
+                  <p className="text-grey-900 text-2xl font-bold">
+                    $ {depositAmount}
+                  </p>
                 </div>
                 <div className="flex items-center gap-4">
                   <p className="text-xs text-grey-900">Final Installment</p>
-                  <p className="text-grey-900 text-2xl font-bold">$ {finalInstallment}</p>
+                  <p className="text-grey-900 text-2xl font-bold">
+                    $ {finalInstallment}
+                  </p>
                 </div>
               </div>
             </div>

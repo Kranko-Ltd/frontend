@@ -193,6 +193,7 @@ const ManagePayments = () => {
                     totalAmount={payment.attributes.actual_cost}
                     depositAmount={0.6 * payment.attributes.actual_cost}
                     finalInstallment={0.4 * payment.attributes.actual_cost}
+                    project_id={payment.id}
                   />
                 );
               })
@@ -208,6 +209,7 @@ const ManagePayments = () => {
                     totalAmount={payment.attributes.actual_cost}
                     depositAmount={0.6 * payment.attributes.actual_cost}
                     finalInstallment={0.4 * payment.attributes.actual_cost}
+                    project_id={payment.id}
                   />
                 );
               })
@@ -222,6 +224,7 @@ const ManagePayments = () => {
                   totalAmount={payment.attributes.actual_cost}
                   depositAmount={0.6 * payment.attributes.actual_cost}
                   finalInstallment={0.4 * payment.attributes.actual_cost}
+                  project_id={payment.id}
                 />
               );
             })
