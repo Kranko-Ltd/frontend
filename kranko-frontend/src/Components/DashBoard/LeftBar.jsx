@@ -52,7 +52,7 @@ const LeftBar = () => {
     },
     {
       title: "My Calendar",
-      href: "/client-dashboard/MyCalendar",
+      href: "/client-dashboard/mycalendar",
       // icon: <RiCalendarTodoFill />,
       icon: <LeftbarICons icon_image="/calendar-icon.png" />,
     },
