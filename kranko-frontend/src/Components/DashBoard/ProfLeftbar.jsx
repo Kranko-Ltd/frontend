@@ -52,7 +52,7 @@ const ProfLeftBar = () => {
     },
     {
       title: "My Calendar",
-      href: "/professional-dashboard/MyCalendar",
+      href: "/professional-dashboard/mycalendar",
       // icon: <RiCalendarTodoFill />,
       icon: <LeftbarICons icon_image="/calendar-icon.png" />,
     },
