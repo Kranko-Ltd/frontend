@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     to: email,
     from: "samuelmunguti61@gmail.com",
     subject: "Welcome to KrankoJobs",
-    text: "Thanks for joining us.  You can now head to http://localhost:3000/professional-dashboard and set up Your Profile",
+    text: "Thanks for joining us.  You can now head to https://frontend-kranko.vercel.app/professional-dashboard and set up Your Profile",
   };
   console.log(message);
   await sgMail

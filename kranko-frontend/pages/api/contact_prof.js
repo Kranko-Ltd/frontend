@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const message = {
     // to: prof_email,
-    to: "s.wanza@alustudent.com",
+    to: prof_email,
     from: "samuelmunguti61@gmail.com",
     subject: "Project Proposal",
     text: `Hello ${prof_name}!!\n
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
     Meet up with the client and agree on the nitty gritties of the project
 
-    Head to http://localhost:3000/professional-dashboard\n
+    Head to https://frontend-kranko.vercel.app/professional-dashboard\n
 
 
     Best
