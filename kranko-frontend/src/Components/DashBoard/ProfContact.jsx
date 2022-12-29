@@ -201,7 +201,7 @@ const ProfContact = () => {
               required: "Budget Explanation is required",
             })}
             type="text"
-            placeholder="Enter your Budget Explanation "
+            placeholder="Enter your Budget Explanation in USD "
             className="mt-3 block h-32 rounded-lg px-2.5 pb-2.5 pt-2.5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border border-greyLight appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green focus:outline-none focus:ring-0 focus:border-[DDDDDD] peer"
           />
 
