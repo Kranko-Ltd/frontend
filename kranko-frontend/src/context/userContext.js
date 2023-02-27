@@ -33,6 +33,7 @@ const UserProvider = ({ children, ...props }) => {
     });
 
     console.log(res.login.jwt);
+    console.log(res.login.user);
 
     setCookie(undefined, "auth_token", res.login.jwt, {
       maxAge: 60 * 60 * 1, // 1 hour
@@ -41,8 +42,6 @@ const UserProvider = ({ children, ...props }) => {
     localStorage.setItem("user", JSON.stringify(res.login.user));
 
     setUser(JSON.parse(localStorage.getItem("user")));
-
-    console.log("user from login: ", user);
 
     // await roleQuery({
     //   onCompleted: (data) => {
@@ -53,8 +52,10 @@ const UserProvider = ({ children, ...props }) => {
     //     else Router.push("/client-dashboard");
     //   },
     // });
+    console.log(user);
     await profileQuery({
       onCompleted: (data) => {
+        const user = JSON.parse(localStorage.getItem("user"));
         console.log(data.professionalDetails);
         const allUsers = data.professionalDetails.data;
         console.log("user_id:", user.id);
@@ -64,8 +65,8 @@ const UserProvider = ({ children, ...props }) => {
         const user_profile = allUsers.find(
           (profile) => profile.attributes.user === user.id
         );
-        console.log(user_profile);
-        console.log("role: ", user_profile.attributes.role);
+        //console.log(user_profile);
+        //console.log("role: ", user_profile.attributes.role);
         const profileInfo = {
           id: user_profile.id,
           certification_link: user_profile.attributes.certification_link,
@@ -140,33 +141,33 @@ const UserProvider = ({ children, ...props }) => {
       );
 
       setUser(JSON.parse(localStorage.getItem("user")));
-      await profileQuery({
-        onCompleted: (data) => {
-          const user_profile = data.professionalDetails.filter(
-            (profile) => profile.data.user === user.id
-          );
-          console.log("role: ", user_profile.data.attributes.role);
-          const profileInfo = {
-            id: user_profile.data.id,
-            certification_link: user_profile.data.attributes.certification_link,
-            Years_of_experience:
-              user_profile.data.attributes.Years_of_experience,
-            Field_of_specialisation:
-              user_profile.data.attributes.Field_of_specialisation,
-            image_url: user_profile.data.attributes.image_url,
-            user: user_profile.data.attributes.user,
-            role: user_profile.data.attributes.role,
-            email: user_profile.data.attributes.email,
-            name: user_profile.data.attributes.name,
-          };
+      // await profileQuery({
+      //   onCompleted: (data) => {
+      //     const user_profile = data.professionalDetails.find(
+      //       (profile) => profile.data.user === user.id
+      //     );
+      //     console.log("role: ", user_profile.data.attributes.role);
+      //     const profileInfo = {
+      //       id: user_profile.data.id,
+      //       certification_link: user_profile.data.attributes.certification_link,
+      //       Years_of_experience:
+      //         user_profile.data.attributes.Years_of_experience,
+      //       Field_of_specialisation:
+      //         user_profile.data.attributes.Field_of_specialisation,
+      //       image_url: user_profile.data.attributes.image_url,
+      //       user: user_profile.data.attributes.user,
+      //       role: user_profile.data.attributes.role,
+      //       email: user_profile.data.attributes.email,
+      //       name: user_profile.data.attributes.name,
+      //     };
 
-          localStorage.setItem("profile", jSON.stringify({ ...profileInfo }));
+      //     localStorage.setItem("profile", jSON.stringify({ ...profileInfo }));
 
-          if (profileInfo.role == "professional")
-            Router.push("/professional-dashboard");
-          else Router.push("/client-dashboard");
-        },
-      });
+      //     if (profileInfo.role == "professional")
+      //       Router.push("/professional-dashboard");
+      //     else Router.push("/client-dashboard");
+      //   },
+      // });
 
       if (
         profile.createProfessionalDetail.data.attributes.role ===

@@ -57,11 +57,11 @@ const ProfessionalSignUp = () => {
   const router = useRouter();
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user?.user != "client" && user?.user != "professional") {
-      router.push("/register1");
-    }
     if (user?.user === "client") {
       router.push("/signUp");
+    }
+    if (user?.user != "client" && user?.user != "professional") {
+      router.push("/register1");
     }
   }, []);
   const [isChecked, setIschecked] = useState(false);
