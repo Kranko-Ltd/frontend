@@ -25,7 +25,7 @@ const FileUpload = () => {
     } else if (info?.name === undefined) {
       router.push("/signUp");
     }
-  });
+  }, []);
   const [selectedPassport, setSelectedPassword] = useState();
   const [isPassportPicked, setIsPassportPicked] = useState(false);
   const [image, setImage] = useState();
