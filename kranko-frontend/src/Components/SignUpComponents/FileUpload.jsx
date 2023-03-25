@@ -20,7 +20,7 @@ const FileUpload = () => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     const info = JSON.parse(localStorage.getItem("BasicInfo"));
-    if (user?.user != "client" && info?.name === undefined) {
+    if (user?.role != "client" && info?.name === undefined) {
       router.push("/register1");
     } else if (info?.name === undefined) {
       router.push("/signUp");
