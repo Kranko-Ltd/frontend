@@ -55,6 +55,7 @@ const UserProvider = ({ children, ...props }) => {
     console.log(user);
     await profileQuery({
       onCompleted: (data) => {
+        //console.log(data)
         const user = JSON.parse(localStorage.getItem("user"));
         console.log(data.professionalDetails);
         const allUsers = data.professionalDetails.data;
